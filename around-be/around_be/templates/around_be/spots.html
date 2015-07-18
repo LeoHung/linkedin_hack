@@ -1,0 +1,26 @@
+{% extends "around_be/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container spacer-l">
+  {% for m in messages %}
+  <div class="list-group">
+    <a href="{% url 'detailed_test' t.id %}" class="list-group-item opa">
+      <h4 class="list-group-item-heading">{{t.user.first_name}} {{t.user.last_name}}</h4>
+      <p class="list-group-item-text">Test created at {{t.create_time}}</p>
+      <p class="list-group-item-text">Progress: <span class="{% if t.status == "Completed" %}text-success{% else %}text-danger{% endif %}"> {{t.status}}</span></p>
+      <p class="list-group-item-text">Freq: {% if t.frequency == None %}Not available{% else %}{{t.frequency}} Hz{% endif %}</p>
+      <p class="list-group-item-text">{% if t.result_comments == None %}No Comments{% else %}{{ t.result_comments|truncatechars:50 }}{% endif %}</p>
+    </a>
+  </div>
+  {% empty %}
+  <div class="list-group">
+    <div class="list-group-item opa">
+      <p class="list-group-item-text">
+        No cases found. No patients have allowed you to view their test result.
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

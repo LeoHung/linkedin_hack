@@ -9,4 +9,10 @@ urlpatterns = patterns('',
     url(r'^message/(?P<mid>[0-9]+)/$', 'around_be.views.message_api', name='message_api'),
     url(r'^message-upload$', 'around_be.views.message_upload', name='message_upload'),
     url(r'^mock-message$', 'around_be.views.generate_mock_message', name="generate_mock_message"),
+
+
+    # Web Endpoints
+    url(r'^test-base$', 'around_be.views.base_test', name='base_test'),
+    url(r'^spots$', 'around_be.views.spots', name='spots'),
+
 )

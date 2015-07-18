@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% load staticfiles %}
+    <title>{% block title %} Around {% endblock %}</title>
+    <!-- <link rel="icon" href="{% static 'around_be/favicon.ico' %}"> -->
+    <link rel="stylesheet" href="{% static 'around_be/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'around_be/css/landing-page.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    {% block add-header %}{% endblock %}
+  </head>
+
+  <body>
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top white-bg opa9">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- <img src="{% static 'around_be/images/logo.png' %}" height="50" width="200"> -->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Spots</a></li>
+            <li><a href="#">Create Spot</a></li>
+          </ul>
+        </div>        
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{% static 'around_be/js/bootstrap.min.js' %}"></script>
+    <!--<script src="/static/around_be/js/docs.min.js"></script> -->
+  </body>
+</html>
