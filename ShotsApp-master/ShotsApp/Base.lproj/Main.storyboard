@@ -488,7 +488,7 @@ Behance</string>
                             <tableViewSection id="5DS-tF-RkB">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="300" id="jXB-12-niH">
-                                        <rect key="frame" x="0.0" y="64" width="414" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jXB-12-niH" id="T8n-Sf-zQx">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="299.5"/>
@@ -509,7 +509,7 @@ Behance</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7LP-bl-Z5b">
-                                        <rect key="frame" x="0.0" y="364" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="300" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7LP-bl-Z5b" id="ksI-BL-iAD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -534,7 +534,7 @@ Behance</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YqC-oU-jtN">
-                                        <rect key="frame" x="0.0" y="408" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="344" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YqC-oU-jtN" id="tXw-dS-HCo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
