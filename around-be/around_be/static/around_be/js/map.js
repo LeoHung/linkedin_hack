@@ -1,13 +1,14 @@
 var map = null;
 var markers = [];
 
-function init_map() {
-    map = new google.maps.Map(document.getElementById('map-canvas'));
-    var mapOptions = {
-      center: { lat: 37.4253498, lng: -122.0765002},
-      zoom: 8
-    };
+function initialize() {
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 12,
+    center: {lat: 37.4247649, lng: -122.0781952}
+  });
 }
+google.maps.event.addDomListener(window, 'load', initialize);
+
 
 function get_messages(position) {
     var lat = position.coords.latitude;
