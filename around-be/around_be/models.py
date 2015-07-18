@@ -10,6 +10,6 @@ class Message(models.Model):
 	start_time = models.DateTimeField(null=True)
 	end_time = models.DateTimeField(null=True)
 	category = models.CharField(max_length=20)
-	unlock_type = models.IntegerField()
+	unlock_type = models.CharField(max_length=20, null=True)
 	lat = models.DecimalField(decimal_places=10, max_digits=15, null=True)
 	lng = models.DecimalField(decimal_places=10, max_digits=15, null=True)
