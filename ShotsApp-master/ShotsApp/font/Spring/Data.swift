@@ -12,11 +12,11 @@ func getData() -> Array<Dictionary<String,String>> {
     
     var data = [
         [
-            "title" : "Bug",
-            "author": "Mike | Creative Mints",
-            "image" : "image",
+            "title" : "New Message",
+            "author": "Mike",
+            "image" : "lego",
             "avatar": "avatar",
-            "text"  : "You guys, the new How To Draw: drawing and sketching objects and environments from your imagination book by S. Robertson is just amazing! I spent the whole weekend gobbling it up and of course I couldn't help but take the watercolors myself! :)\n\nFill up the gas tank and go check out the attachment!\n\nBehance"
+            "text"  : "content"
         ],
         [
             "title": "Secret Trips",
