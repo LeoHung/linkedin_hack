@@ -3,6 +3,8 @@ from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from mock_message_generator import *
 from around_be.models import Message
+from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
 
 import json
 import datetime
@@ -107,8 +109,30 @@ def message_api(request, mid=None):
     print e
     return HttpResponseNotFound('<h1>Not Found %s. </h1>' % mid)
 
+
+# http://localhost:8000/message-upload?msg_type=pokemon&title=Pokemon151&doc=whatever&url=test&img_url=test&start_time=1437199878000&end_time=1437286278000&category=pokemon&lat=37.4253498&lng=-122.0765002&lock=True&unlock_type=upload_pic
+@csrf_exempt
 def message_upload(request):
-  pass
+  if request.method != 'POST':
+    raise Http404
+
+  message = Message(
+    msg_type = request.POST['msg_type'],
+    title = request.POST['title'],
+    doc = request.POST['doc'],
+    url = request.POST['url'],
+    img_url = request.POST['img_url'],
+    start_time = datetime.datetime.fromtimestamp(long(request.POST['start_time'])/1000).strftime('%Y-%m-%dT%H:%M:%S'),
+    end_time = datetime.datetime.fromtimestamp(long(request.POST['end_time'])/1000).strftime('%Y-%m-%dT%H:%M:%S'),
+    category = request.POST['category'],
+    lock = bool(request.POST['lock']),
+    unlock_type = request.POST['unlock_type'],
+    lat = float(request.POST['lat']),
+    lng = float(request.POST['lng'])
+  )
+  message.save()
+
+  return HttpResponse("message upload succeeded")
 
 def generate_mock_message(request):
   mock_objects = get_all()
