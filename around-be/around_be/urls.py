@@ -14,5 +14,5 @@ urlpatterns = patterns('',
     # Web Endpoints
     url(r'^test-base$', 'around_be.views.base_test', name='base_test'),
     url(r'^spots$', 'around_be.views.spots', name='spots'),
-
+    url(r'^map$', 'around_be.views.map', name='map')
 )

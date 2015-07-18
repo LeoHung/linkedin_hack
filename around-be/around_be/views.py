@@ -178,8 +178,10 @@ def generate_mock_message(request):
   return HttpResponse("mocking succeeded")
 
 def base_test(request):
-  return render(request, 'around_be/base.html', {})  
+  return render(request, 'around_be/base.html', {})
 
 def spots(request):
-  return render(request, 'around_be/spots.html', {})  
+  return render(request, 'around_be/spots.html', {})
 
+def map(request):
+  return render(request, 'around_be/map.html', {})
