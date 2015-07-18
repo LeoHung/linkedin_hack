@@ -13,16 +13,14 @@ class StartController : UITabBarController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let item0 : UITabBarItem = self.tabBar.items?[0] as! UITabBarItem
-        var item1 : UITabBarItem = self.tabBar.items?[1] as! UITabBarItem
-        //var item2 : UITabBarItem = self.tabBar.items?[2] as! UITabBarItem
-        item0.title = "Create"
-        item1.title = "List"
-        //item2.title = "Explore"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let item0 : UITabBarItem = self.tabBar.items?[0] as! UITabBarItem
+        var item1 : UITabBarItem = self.tabBar.items?[1] as! UITabBarItem
+        item0.title = "Create"
+        item1.title = "List"
     }
     
     
