@@ -18,9 +18,7 @@ class Home: UIViewController {
     @IBOutlet weak var shareView: UIView!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var favoritesLabel: UILabel!
@@ -29,6 +27,18 @@ class Home: UIViewController {
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var shareLabelsView: UIView!
+    @IBOutlet weak var timeButton: UIImageView!
+    @IBOutlet weak var titleTextField: UITextField!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    ////////////////////////////
+    var isReturned = false
+    var photo: UIImage!
+    var lockType: String?
+    var lockQuestioin: String?
+    var lockAnswer: String?
+    var content: String?
+    ////////////////////////////
     
     @IBAction func maskButtonDidPress(sender: AnyObject) {
         spring(0.5) {
@@ -60,6 +70,32 @@ class Home: UIViewController {
             self.shareView.transform = CGAffineTransformMakeTranslation(0, 0)
             self.dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
         }
+//        var alertController:UIAlertController?
+//        alertController = UIAlertController(title: "Life Time",
+//            message: "Enter the life time",
+//            preferredStyle: .Alert)
+//        
+//        alertController!.addTextFieldWithConfigurationHandler(
+//            {(textField: UITextField!) in
+//                textField.placeholder = "1"
+//        })
+//        
+//        let action = UIAlertAction(title: "Submit",
+//            style: UIAlertActionStyle.Default,
+//            handler: {[weak self]
+//                (paramAction:UIAlertAction!) in
+//                if let textFields = alertController?.textFields{
+//                    let theTextFields = textFields as! [UITextField]
+//                    let enteredText = theTextFields[0].text
+//                    self!.timeLabel.text = enteredText
+//                }
+//            })
+//        
+//        alertController?.addAction(action)
+//        self.presentViewController(alertController!,
+//            animated: true,
+//            completion: nil)
+        
         springWithDelay(0.5, 0.05, {
             self.emailButton.transform = CGAffineTransformMakeTranslation(0, 0)
             })
@@ -110,7 +146,6 @@ class Home: UIViewController {
             self.dialogView.frame = CGRectMake(0, 0, 320, 568)
             self.dialogView.layer.cornerRadius = 0
             self.imageButton.frame = CGRectMake(0, 0, 320, 240)
-            self.likeButton.alpha = 0
             self.shareButton.alpha = 0
             self.userButton.alpha = 0
             self.headerView.alpha = 0
@@ -134,6 +169,10 @@ class Home: UIViewController {
     
     var data = getData()
     var number = 0
+    
+    //////////////////////////
+    // Init
+    //////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -143,8 +182,8 @@ class Home: UIViewController {
         animator = UIDynamicAnimator(referenceView: view)
         
         dialogView.alpha = 0
-        
-        
+        timeButton.userInteractionEnabled = true
+        emailButton.userInteractionEnabled = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -160,11 +199,25 @@ class Home: UIViewController {
             self.dialogView.transform = CGAffineTransformConcat(scale, translate)
         }
         
-        avatarImageView.image = UIImage(named: data[number]["avatar"]!)
-        imageButton.setImage(UIImage(named: data[number]["image"]!), forState: UIControlState.Normal)
-        backgroundImageView.image = UIImage(named: data[number]["image"]!)
-        authorLabel.text = data[number]["author"]
-        titleLabel.text = data[number]["title"]
+        if (isReturned == true) {
+            isReturned = false
+            
+            print(content)
+            
+            avatarImageView.image = UIImage(named: data[number]["avatar"]!)
+            imageButton.setImage(photo, forState: UIControlState.Normal)
+            backgroundImageView.image = photo
+            authorLabel.text = data[number]["author"]
+            titleTextField.text = data[number]["title"]
+        } else {
+            avatarImageView.image = UIImage(named: data[number]["avatar"]!)
+            imageButton.setImage(UIImage(named: data[number]["image"]!), forState: UIControlState.Normal)
+            
+            backgroundImageView.image = UIImage(named: data[number]["image"]!)
+            authorLabel.text = data[number]["author"]
+            titleTextField.text = data[number]["title"]
+        }
+
         
         dialogView.alpha = 1
     }
@@ -208,7 +261,17 @@ class Home: UIViewController {
                 animator.addBehavior(gravity)
                 
                 delay(0.3) {
+                    
                     self.refreshView()
+                }
+                
+                delay(0.6) {
+                    var alert = UIAlertView()
+                    alert.title = "Enter Input"
+                    alert.addButtonWithTitle("Done")
+                    alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
+                    alert.addButtonWithTitle("Cancel")
+                    alert.show()
                 }
             }
         }
@@ -228,6 +291,88 @@ class Home: UIViewController {
         dialogView.center = view.center
         viewDidAppear(true)
         
+    }
+    
+    func handleCancel(alertView: UIAlertAction!)
+    {
+        println("User click Cancel button")
+    }
+    
+    func configurationTextField(textField: UITextField!)
+    {
+        println("configurat hire the TextField")
+        self.timeLabel.text = "Hello world"
+    }
+    
+    //////////////
+    // Time
+    //////////////
+    @IBAction func setTime(sender: UITapGestureRecognizer) {
+        var alertController:UIAlertController?
+        alertController = UIAlertController(title: "Expiration Time",
+            message: "",
+            preferredStyle: .Alert)
+        
+        alertController!.addTextFieldWithConfigurationHandler(
+            {(textField: UITextField!) in
+                textField.placeholder = "1"
+        })
+        
+        let action = UIAlertAction(title: "Submit",
+            style: UIAlertActionStyle.Default,
+            handler: {[weak self]
+                (paramAction:UIAlertAction!) in
+                if let textFields = alertController?.textFields{
+                    let theTextFields = textFields as! [UITextField]
+                    let enteredText = theTextFields[0].text
+                    self!.timeLabel.text = enteredText
+                }
+            })
+        
+        alertController?.addAction(action)
+        self.presentViewController(alertController!,
+            animated: true,
+            completion: nil)
+    }
+    
+    //////////////////////
+    // Lock
+    /////////////////////
+    @IBAction func setLock(sender: UITapGestureRecognizer) {
+        var alertController:UIAlertController?
+        alertController = UIAlertController(title: "Lock it with text",
+            message: "",
+            preferredStyle: .Alert)
+        
+        alertController!.addTextFieldWithConfigurationHandler(
+            {(textField: UITextField!) in
+                textField.placeholder = "Question"
+        })
+        alertController!.addTextFieldWithConfigurationHandler(
+            {(textField: UITextField!) in
+                textField.placeholder = "Answer"
+        })
+        
+        let action = UIAlertAction(title: "Lock it!",
+            style: UIAlertActionStyle.Default,
+            handler: {[weak self]
+                (paramAction:UIAlertAction!) in
+                if let textFields = alertController?.textFields{
+                    let theTextFields = textFields as! [UITextField]
+                    let enteredText1 = theTextFields[0].text
+                    let enteredText2 = theTextFields[1].text
+
+                    self!.lockType = "text"
+                    self!.lockQuestioin = enteredText1
+                    self!.lockAnswer = enteredText2
+                }
+            })
+        
+        alertController?.addAction(action)
+        self.presentViewController(alertController!,
+            animated: true,
+            completion: nil)
+
     }
     
 }

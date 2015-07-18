@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ev9-Ec-DdZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ev9-Ec-DdZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="TipoType - Libertad.otf">
-            <string>Libertad</string>
-            <string>Libertad</string>
             <string>Libertad</string>
             <string>Libertad</string>
             <string>Libertad</string>
@@ -76,13 +74,12 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bug" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sfn-AN-PFa">
-                                                        <rect key="frame" x="55" y="14" width="170" height="19"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.13" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hello " borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="WKi-VM-cL6">
+                                                        <rect key="frame" x="55" y="0.0" width="167" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="Libertad" family="Libertad" pointSize="20"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mike | Creative Mints" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q1b-ZB-Fz1">
                                                         <rect key="frame" x="87" y="38" width="107" height="11"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -102,8 +99,11 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialog-favorites" id="2U3-G1-DWR">
                                                         <rect key="frame" x="229" y="10" width="40" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="Wjw-dZ-uzf" appends="YES" id="Bqn-sp-M79"/>
+                                                        </connections>
                                                     </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pnz-RQ-jfU">
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pnz-RQ-jfU">
                                                         <rect key="frame" x="239" y="18" width="20" height="11"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Libertad" family="Libertad" pointSize="12"/>
@@ -113,25 +113,12 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SQh-Tc-ElI">
-                                                <rect key="frame" x="0.0" y="209" width="140" height="61"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Libertad" family="Libertad" pointSize="20"/>
-                                                <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Like" image="like">
-                                                    <color key="titleColor" red="0.23921568630000001" green="0.25882352939999997" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="likeButtonDidPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aiu-ba-1rE"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TUh-my-BR5">
-                                                <rect key="frame" x="140" y="209" width="140" height="61"/>
+                                                <rect key="frame" x="70" y="209" width="140" height="61"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Libertad" family="Libertad" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Share" image="share">
+                                                <state key="normal" title="Lock" image="share">
                                                     <color key="titleColor" red="0.23921568630000001" green="0.25882352939999997" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -201,7 +188,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="B3x-aF-tqK">
-                                                <rect key="frame" x="0.0" y="96" width="170" height="42"/>
+                                                <rect key="frame" x="0.0" y="95" width="170" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Libertad" family="Libertad" pointSize="18"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -230,6 +217,10 @@
                                                 <state key="normal" backgroundImage="share-email">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setLock1:" destination="vXZ-lx-hvc" eventType="touchDown" id="eqs-95-xV6"/>
+                                                    <outletCollection property="gestureRecognizers" destination="d5b-5b-moa" appends="YES" id="ahn-ee-RQk"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9K9-yn-fx8">
                                                 <rect key="frame" x="115" y="68" width="90" height="90"/>
@@ -249,8 +240,8 @@
                                                 <rect key="frame" x="19" y="5" width="299" height="188"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="znp-2e-MdF">
-                                                        <rect key="frame" x="115" y="20" width="53" height="20"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock the Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="znp-2e-MdF">
+                                                        <rect key="frame" x="55" y="20" width="173" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Libertad" family="Libertad" pointSize="22"/>
                                                         <color key="textColor" red="0.65490196079999996" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -279,6 +270,9 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="d5b-5b-moa" appends="YES" id="F0p-X4-5BA"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -303,14 +297,15 @@
                         <outlet property="favoritesLabel" destination="pnz-RQ-jfU" id="OgM-9F-h4h"/>
                         <outlet property="headerView" destination="C2q-ut-5bo" id="1wH-ql-cHb"/>
                         <outlet property="imageButton" destination="g6t-KI-W43" id="R7b-Zl-4nO"/>
-                        <outlet property="likeButton" destination="SQh-Tc-ElI" id="a5e-EA-Y3U"/>
                         <outlet property="maskButton" destination="Ywy-VV-ikv" id="CSy-fR-5QD"/>
                         <outlet property="panRecogniser" destination="Wjb-ur-eVr" id="zzZ-9t-uyU"/>
                         <outlet property="popoverView" destination="8Mq-Cm-UAp" id="4wm-Z6-eGz"/>
                         <outlet property="shareButton" destination="TUh-my-BR5" id="5mV-l5-tgI"/>
                         <outlet property="shareLabelsView" destination="NjB-Mx-qug" id="dB3-QE-Pva"/>
                         <outlet property="shareView" destination="1aY-4L-AfP" id="srR-tU-VmJ"/>
-                        <outlet property="titleLabel" destination="sfn-AN-PFa" id="th4-wk-045"/>
+                        <outlet property="timeButton" destination="2U3-G1-DWR" id="sPW-0H-F80"/>
+                        <outlet property="timeLabel" destination="pnz-RQ-jfU" id="GW7-Bx-ns8"/>
+                        <outlet property="titleTextField" destination="WKi-VM-cL6" id="Ida-tY-79M"/>
                         <outlet property="twitterButton" destination="9K9-yn-fx8" id="cuj-2O-lx4"/>
                         <outlet property="userButton" destination="8nS-Qg-dEd" id="15l-jf-xb7"/>
                         <segue destination="6nb-ye-CDC" kind="modal" identifier="homeToDetail" animates="NO" id="Nna-My-0nK"/>
@@ -322,6 +317,16 @@
                         <action selector="handleGesture:" destination="vXZ-lx-hvc" id="IKi-VC-KmM"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="Wjw-dZ-uzf">
+                    <connections>
+                        <action selector="setTime:" destination="vXZ-lx-hvc" id="wgS-79-7mp"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="d5b-5b-moa">
+                    <connections>
+                        <action selector="setLock:" destination="vXZ-lx-hvc" id="5Fa-s6-jT5"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="168" y="366.36000000000001"/>
         </scene>
@@ -336,6 +341,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" id="M17-vE-6VJ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="408"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="H2H-kS-P6a" appends="YES" id="yss-wr-oBv"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nuu-ac-IfC">
                                 <rect key="frame" x="20" y="20" width="40" height="40"/>
@@ -389,6 +398,11 @@ Behance</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFs-bZ-TJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="H2H-kS-P6a">
+                    <connections>
+                        <action selector="setImage:" destination="6nb-ye-CDC" id="bzI-fe-oDA"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="774" y="366"/>
         </scene>
@@ -413,7 +427,7 @@ Behance</string>
         <!--Geotifications (0)-->
         <scene sceneID="k2G-H7-wFN">
             <objects>
-                <viewController id="3fO-KN-gd2" customClass="GeotificationsViewController" customModule="Geotify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3fO-KN-gd2" customClass="GeotificationsViewController" customModule="ShotsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uFt-Pv-zCK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,7 +483,7 @@ Behance</string>
         <!--Add Geotification-->
         <scene sceneID="Wlv-AG-HRt">
             <objects>
-                <tableViewController id="FVW-ng-uEJ" customClass="AddGeotificationViewController" customModule="Geotify" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="FVW-ng-uEJ" customClass="AddGeotificationViewController" customModule="ShotsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xmi-Zh-uko">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -478,9 +492,10 @@ Behance</string>
                             <tableViewSection id="5DS-tF-RkB">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="300" id="jXB-12-niH">
+                                        <rect key="frame" x="0.0" y="64" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jXB-12-niH" id="T8n-Sf-zQx">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="247"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="299.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" id="XQz-qZ-IXH">
@@ -498,9 +513,10 @@ Behance</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7LP-bl-Z5b">
+                                        <rect key="frame" x="0.0" y="364" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7LP-bl-Z5b" id="ksI-BL-iAD">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" placeholder="Radius in meters" minimumFontSize="17" id="QOR-2L-LXx">
@@ -522,9 +538,10 @@ Behance</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YqC-oU-jtN">
+                                        <rect key="frame" x="0.0" y="408" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YqC-oU-jtN" id="tXw-dS-HCo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Reminder note to be shown" minimumFontSize="17" id="emj-sf-HUg">
@@ -593,7 +610,6 @@ Behance</string>
         <image name="button-user" width="40" height="40"/>
         <image name="dialog-favorites" width="38" height="38"/>
         <image name="image" width="800" height="600"/>
-        <image name="like" width="24" height="22"/>
         <image name="popover-bg" width="170" height="141"/>
         <image name="popover-favorites" width="22" height="22"/>
         <image name="popover-profile" width="22" height="22"/>
@@ -610,6 +626,6 @@ Behance</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6A0-Db-5Rt"/>
+        <segue reference="cEL-eI-NCu"/>
     </inferredMetricsTieBreakers>
 </document>

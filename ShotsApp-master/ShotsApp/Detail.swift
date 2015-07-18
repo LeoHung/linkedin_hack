@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Detail: UIViewController {
+class Detail: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -18,6 +18,7 @@ class Detail: UIViewController {
     
     var data = Array<Dictionary<String,String>>()
     var number = 0
+    var imageTest: UIImage?
     
     @IBAction func backButtonDidPress(sender: AnyObject) {
         performSegueWithIdentifier("detailToHome", sender: sender)
@@ -28,9 +29,16 @@ class Detail: UIViewController {
             let controller = segue.destinationViewController as! Home
             controller.data = data
             controller.number = number
+            controller.isReturned = true
+            controller.photo = imageTest
+            controller.content = descriptionTextView.text
         }
     }
     
+    
+    ///////////////////////////
+    // Init
+    //////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +50,8 @@ class Detail: UIViewController {
         backButton.alpha = 0
         
         textViewWithFont(descriptionTextView, "Libertad", 16, 7)
+        imageView.userInteractionEnabled = true
+        imageTest = imageView.image
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -55,4 +65,41 @@ class Detail: UIViewController {
         return true
     }
 
+    ///////////////////////////////////////////
+    // Image
+    ///////////////////////////////////////////
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        imageTest = selectedImage
+        imageView.image = selectedImage
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func setImage(sender: UIPanGestureRecognizer) {
+        
+        if sender.state == UIGestureRecognizerState.Ended {
+            let imagePickerController = UIImagePickerController()
+            
+            let translation = sender.translationInView(view)
+            
+            if translation.y > 50 {
+                imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+                
+                imagePickerController.delegate = self
+            } else if translation.y < -50 {
+                imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+                
+                imagePickerController.delegate = self
+            }
+            
+            presentViewController(imagePickerController, animated: true, completion: nil)
+        }
+    }
+ 
 }
