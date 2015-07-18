@@ -20,6 +20,9 @@ def home_page(request):
   #                   available to the view.
   return render(request, 'around_be/index.html', {})
 
+def map(request):
+
+
 def hello_world(request):
   # Just return an HttpResponse object with the HTML we want to send
   html="""
@@ -88,7 +91,7 @@ def search(lat, lng, category):
   return context
 
 def search_api(request):
-  MAX_RANGE = 0.06
+  MAX_RANGE = 0.1
 
   if request.method != 'GET':
     raise Http404
@@ -110,6 +113,7 @@ def search_api(request):
   for m in messages:
     if category and m.category not in category:
       continue
+
     res = {
       'id': m.id,
       'msg_type': m.msg_type,
@@ -208,7 +212,7 @@ def generate_mock_message(request):
   return HttpResponse("mocking succeeded")
 
 def base_test(request):
-  return render(request, 'around_be/base.html', {})  
+  return render(request, 'around_be/base.html', {})
 
 def spots(request):
   lat = 37.4253498
@@ -218,3 +222,5 @@ def spots(request):
   context['messages'] = messages
   return render(request, 'around_be/spots.html', context)  
 
+def map(request):
+  return render(request, 'around_be/map.html', {})

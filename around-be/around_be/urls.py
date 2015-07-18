@@ -1,4 +1,7 @@
 from django.conf.urls import patterns, include, url
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = patterns('',
     url(r'^$', 'around_be.views.home_page'),
@@ -15,5 +18,5 @@ urlpatterns = patterns('',
     url(r'^test-base$', 'around_be.views.base_test', name='base_test'),
     url(r'^spots$', 'around_be.views.spots', name='spots'),
     url(r'^spot/(?P<mid>[0-9]+)/$', 'around_be.views.spot', name='spot'),
-
+    url(r'^map$', 'around_be.views.map', name='map')
 )
