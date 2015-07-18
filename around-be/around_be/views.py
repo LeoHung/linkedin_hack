@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from mock_message_generator import *
 from around_be.models import *
@@ -85,9 +86,13 @@ def message_api(request, mid=None):
   if not mid:
     return HttpResponseNotFound('<h1>mid is null.</h1>')
 
-  response_text = 'Hello mid = %s' % mid
-  return HttpResponse(response_text, content_type='application/json')
+  try:
+    message = Messages.objects.get(id=int(mid))
+    msg = {}
 
+    return msg
+  except:
+    return HttpResponseNotFound('<h1>Not Found %s. </h1>' % mid)
 
 def message_upload(request):
   pass
