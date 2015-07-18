@@ -7,11 +7,8 @@
 
 {% block content %}
 <div class="container spacer-l">
-  <table class="table">
-    <tbody>
-<!--       <tr id="tr{{m.id}}">
-        <td><img src="{{m.img_url}}"></td>
-      </tr> -->
+  <table id="table">
+    <tbody id="tbody">
       {% for m in messages %}
       <tr id="tr{{m.id}}">
         <td style="width: 90px;"><img src="{{m.img_url}}" height="30" width="40"></td>

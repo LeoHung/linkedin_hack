@@ -219,5 +219,14 @@ def spots(request):
   context['messages'] = messages
   return render(request, 'around_be/spots.html', context)  
 
+def spot(request, mid=None):
+  if not mid:
+    return HttpResponseNotFound('<h1>mid is null.</h1>')
+  
+  m = Message.objects.get(id=int(mid))
+  context = {}
+  context['message'] = m
+  return render(request, 'around_be/spot.html', context)  
+
 def map(request):
   return render(request, 'around_be/map.html', {})
