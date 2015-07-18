@@ -1,15 +1,16 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from mock_message_generator import *
+from around_be.models import *
 
 import json
 
 def home_page(request):
   # render takes: (1) the request,
   #               (2) the name of the view to generate, and
-	#               (3) a dictionary of name-value pairs of data to be
+  #               (3) a dictionary of name-value pairs of data to be
   #                   available to the view.
-  return render(request, 'around-be/index.html', {})
+  return render(request, 'around_be/index.html', {})
 
 def hello_world(request):
   # Just return an HttpResponse object with the HTML we want to send
@@ -22,7 +23,7 @@ def hello_world(request):
       </head>
       <body>
         <h1>Hello World!</h1>
-	    </body>
+      </body>
     </html>
   """
   return HttpResponse(html)
@@ -33,7 +34,7 @@ def hello_world_with_template(request):
   #               (2) the name of the view to generate, and
   #               (3) a dictionary of name-value pairs of data to be
   #                   available to the view.
-  return render(request, 'around-be/hello-world.html', {})
+  return render(request, 'around_be/hello-world.html', {})
 
 
 # The action for the 'intro/hello.html' route.
@@ -46,7 +47,7 @@ def greet(request):
     context['person_name'] = request.GET['name']
 
   # Pass the context to the templated HTML file (aka the "view")
-  return render(request, 'around-be/greet.html', context)
+  return render(request, 'around_be/greet.html', context)
 
 def search_api(request):
   if request.method != 'GET':
@@ -85,3 +86,21 @@ def message_api(request):
 
 def message_upload(request):
   pass
+
+# def generate_mock_message(request):
+#   mock_objects = get_all()
+  
+#   for obj in mock_objects:
+#     message = Messsage(
+#       msg_type = obj['msg_type'],
+#       title = obj['title'],
+#       doc = obj['doc'],
+#       url = obj['url'],
+#       img_url = obj['img_url'],
+#       start_time = obj['start_time'],
+#       end_time = obj['end_time'],
+#       category = obj['category'],
+#       unlock_type = obj['unlock_type'],
+#       lat = obj['lat'],
+#       lng = obj['lng'])
+#   return HttpResponse("mocking succeeded")
