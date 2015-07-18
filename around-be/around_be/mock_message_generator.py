@@ -9,7 +9,13 @@ def get_lat():
 def get_lng():
     return -122.0765002 + ((random.random() - 0.5) * 0.01 * (1/0.7))
 
+
 def get_all():
+    pokemon_docs = [
+        """Speaking of cute things that come bundled with heartbreaking tragedy, we have Spoink, who appears to have been scientifically designed to have an Adorability Index of over 3,000 kilobuttons.""",
+        """Right about here is where things start to get weird, and yes: I say that knowing full well that I just discussed a psychic pig that bounces on a spring made from its tail to keep from going into cardiac arrest.""",
+    ]
+
     ret = []
     # add pokemon
     for i in xrange(10, 20+1):
@@ -17,7 +23,7 @@ def get_all():
         # m['id'] = i
         m['msg_type'] = 'pokemon'
         m['title'] = 'Pokemon %d' % i
-        m['doc'] = """Extremely we promotion remainder eagerness enjoyment an. Ham her demands removal brought minuter raising invited gay. Contented consisted continual curiosity contained get sex. Forth child dried in in aware do. You had met they song how feel lain evil near. Small she avoid six yet table china. And bed make say been then dine mrs. To household rapturous fulfilled attempted on so. """
+        m['doc'] = random.choice(pokemon_docs)
         m['url'] = 'https://raw.githubusercontent.com/LeoHung/linkedin_hack/master/pseudo_api/img/%d.png' %(i)
         m['img_url'] = 'https://raw.githubusercontent.com/LeoHung/linkedin_hack/master/pseudo_api/img/%d.png' %(i)
         m['start_time'] = time.time()
