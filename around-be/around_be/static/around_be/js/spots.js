@@ -27,8 +27,6 @@ function showPosition(position) {
         },
         dataType : "json",
         success: function( items ) {
-            console.log("DERF")
-            var dist = Math.sqrt(Math.pow(this.lat-position.coords.latitude,2)+Math.pow(this.lng-position.coords.longitude,2))
             $("#table").html("")
             $(items).each(function() {
             	$("#table").append(
@@ -37,7 +35,7 @@ function showPosition(position) {
             	"<img src=\""+this.img_url+"\" height=\"30\" width=\"40\">"+
             	"</td>"+
             	"<td id=\"td"+this.id+"\"><a href=\"spot/"+this.id+"\">"+this.title+"</a></td>"+
-                "<td><a>"+dist+"</a></td>"+
+                "<td><a>"+(parseFloat(this.dist)*300).toFixed(2)+"mi</a></td>"+
                 "</tr>")
             });
         }

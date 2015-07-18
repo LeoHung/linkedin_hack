@@ -229,7 +229,7 @@ def spots(request):
   lng = -122.0765002
   messages = search(lat, lng, [])
   context = {}
-  context['messages'] = messages
+  # context['messages'] = messages
   return render(request, 'around_be/spots.html', context)  
 
 def spot(request, mid=None):
