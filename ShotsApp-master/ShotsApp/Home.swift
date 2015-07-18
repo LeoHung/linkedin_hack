@@ -38,6 +38,8 @@ class Home: UIViewController {
     var lockQuestioin: String?
     var lockAnswer: String?
     var content: String?
+    var messageArray = Array<Dictionary<String,String>>()
+    var titleText: String?
     ////////////////////////////
     
     @IBAction func maskButtonDidPress(sender: AnyObject) {
@@ -70,44 +72,44 @@ class Home: UIViewController {
             self.shareView.transform = CGAffineTransformMakeTranslation(0, 0)
             self.dialogView.transform = CGAffineTransformMakeScale(0.8, 0.8)
         }
-//        var alertController:UIAlertController?
-//        alertController = UIAlertController(title: "Life Time",
-//            message: "Enter the life time",
-//            preferredStyle: .Alert)
-//        
-//        alertController!.addTextFieldWithConfigurationHandler(
-//            {(textField: UITextField!) in
-//                textField.placeholder = "1"
-//        })
-//        
-//        let action = UIAlertAction(title: "Submit",
-//            style: UIAlertActionStyle.Default,
-//            handler: {[weak self]
-//                (paramAction:UIAlertAction!) in
-//                if let textFields = alertController?.textFields{
-//                    let theTextFields = textFields as! [UITextField]
-//                    let enteredText = theTextFields[0].text
-//                    self!.timeLabel.text = enteredText
-//                }
-//            })
-//        
-//        alertController?.addAction(action)
-//        self.presentViewController(alertController!,
-//            animated: true,
-//            completion: nil)
+        //        var alertController:UIAlertController?
+        //        alertController = UIAlertController(title: "Life Time",
+        //            message: "Enter the life time",
+        //            preferredStyle: .Alert)
+        //
+        //        alertController!.addTextFieldWithConfigurationHandler(
+        //            {(textField: UITextField!) in
+        //                textField.placeholder = "1"
+        //        })
+        //
+        //        let action = UIAlertAction(title: "Submit",
+        //            style: UIAlertActionStyle.Default,
+        //            handler: {[weak self]
+        //                (paramAction:UIAlertAction!) in
+        //                if let textFields = alertController?.textFields{
+        //                    let theTextFields = textFields as! [UITextField]
+        //                    let enteredText = theTextFields[0].text
+        //                    self!.timeLabel.text = enteredText
+        //                }
+        //            })
+        //
+        //        alertController?.addAction(action)
+        //        self.presentViewController(alertController!,
+        //            animated: true,
+        //            completion: nil)
         
         springWithDelay(0.5, 0.05, {
             self.emailButton.transform = CGAffineTransformMakeTranslation(0, 0)
-            })
+        })
         springWithDelay(0.5, 0.10, {
             self.twitterButton.transform = CGAffineTransformMakeTranslation(0, 0)
-            })
+        })
         springWithDelay(0.5, 0.15, {
             self.facebookButton.transform = CGAffineTransformMakeTranslation(0, 0)
-            })
+        })
         springWithDelay(0.5, 0.2, {
             self.shareLabelsView.alpha = 1
-            })
+        })
     }
     func hideShareView() {
         spring(0.5) {
@@ -152,7 +154,7 @@ class Home: UIViewController {
             
             }, { finished in
                 self.performSegueWithIdentifier("homeToDetail", sender: self)
-            })
+        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -160,6 +162,7 @@ class Home: UIViewController {
             let controller = segue.destinationViewController as! Detail
             controller.data = data
             controller.number = number
+            controller.titleText = titleTextField.text
         }
     }
     
@@ -208,7 +211,7 @@ class Home: UIViewController {
             imageButton.setImage(photo, forState: UIControlState.Normal)
             backgroundImageView.image = photo
             authorLabel.text = data[number]["author"]
-            titleTextField.text = data[number]["title"]
+            titleTextField.text = titleText
         } else {
             avatarImageView.image = UIImage(named: data[number]["avatar"]!)
             imageButton.setImage(UIImage(named: data[number]["image"]!), forState: UIControlState.Normal)
@@ -217,7 +220,7 @@ class Home: UIViewController {
             authorLabel.text = data[number]["author"]
             titleTextField.text = data[number]["title"]
         }
-
+        
         
         dialogView.alpha = 1
     }
@@ -228,6 +231,7 @@ class Home: UIViewController {
     var snapBehavior : UISnapBehavior!
     
     @IBOutlet var panRecogniser: UIPanGestureRecognizer!
+    
     
     @IBAction func handleGesture(sender: AnyObject) {
         let myView = dialogView
@@ -265,12 +269,21 @@ class Home: UIViewController {
                     self.refreshView()
                 }
                 
-                delay(0.6) {
+                delay(0.3) {
+                    
+                    //////////////
+                    //Update
+                    //////////////
+                    self.messageArray.append(["lat":"111.111"])
+                    self.messageArray.append(["lng":"002.111"])
+                    self.messageArray.append(["start_time":"2014"])
+                    self.messageArray.append(["end_time":"2022"])
+                    self.messageArray.append(["img_url":"pic.s"])
+                    
                     var alert = UIAlertView()
-                    alert.title = "Enter Input"
-                    alert.addButtonWithTitle("Done")
-                    alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
-                    alert.addButtonWithTitle("Cancel")
+                    alert.title = "New Message Created"
+                    alert.addButtonWithTitle("OK")
+                    print(self.messageArray.description)
                     alert.show()
                 }
             }
@@ -278,10 +291,7 @@ class Home: UIViewController {
     }
     
     func refreshView() {
-        number++
-        if(number > 3) {
-            number = 0
-        }
+        number = 0
         
         animator.removeAllBehaviors()
         
@@ -291,17 +301,6 @@ class Home: UIViewController {
         dialogView.center = view.center
         viewDidAppear(true)
         
-    }
-    
-    func handleCancel(alertView: UIAlertAction!)
-    {
-        println("User click Cancel button")
-    }
-    
-    func configurationTextField(textField: UITextField!)
-    {
-        println("configurat hire the TextField")
-        self.timeLabel.text = "Hello world"
     }
     
     //////////////
@@ -361,10 +360,15 @@ class Home: UIViewController {
                     let theTextFields = textFields as! [UITextField]
                     let enteredText1 = theTextFields[0].text
                     let enteredText2 = theTextFields[1].text
-
+                    
                     self!.lockType = "text"
                     self!.lockQuestioin = enteredText1
                     self!.lockAnswer = enteredText2
+ 
+                    self!.messageArray.append(["lock":"true"])
+                    self!.messageArray.append(["unlockType":"text"])
+                    self!.messageArray.append(["lockAnswers":enteredText2])
+                    self!.messageArray.append(["lockQuestion":enteredText1])
                 }
             })
         
@@ -372,7 +376,7 @@ class Home: UIViewController {
         self.presentViewController(alertController!,
             animated: true,
             completion: nil)
-
+        hideShareView()
     }
     
 }
