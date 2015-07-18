@@ -27,7 +27,6 @@
 		96D9E97B198808B5009D7A10 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9E976198808B5009D7A10 /* Misc.swift */; };
 		96D9E97C198808B5009D7A10 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9E977198808B5009D7A10 /* SpringAnimation.swift */; };
 		96D9E9801988357D009D7A10 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9E97F1988357D009D7A10 /* Detail.swift */; };
-		C5AFBDB11B5A85D90078C544 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AFBDB01B5A85D90078C544 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +64,6 @@
 		96D9E976198808B5009D7A10 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		96D9E977198808B5009D7A10 /* SpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
 		96D9E97F1988357D009D7A10 /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
-		C5AFBDB01B5A85D90078C544 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +168,6 @@
 				96D9E975198808B5009D7A10 /* DesignableView.swift */,
 				96D9E976198808B5009D7A10 /* Misc.swift */,
 				96D9E977198808B5009D7A10 /* SpringAnimation.swift */,
-				C5AFBDB01B5A85D90078C544 /* Message.swift */,
 			);
 			name = Spring;
 			path = font/Spring;
@@ -290,7 +287,6 @@
 				96D9E97A198808B5009D7A10 /* DesignableView.swift in Sources */,
 				50DE4E741B5A56E400E0F93F /* GeotificationsViewController.swift in Sources */,
 				96D9E979198808B5009D7A10 /* Data.swift in Sources */,
-				C5AFBDB11B5A85D90078C544 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

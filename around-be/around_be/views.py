@@ -57,8 +57,38 @@ def greet(request):
   # Pass the context to the templated HTML file (aka the "view")
   return render(request, 'around_be/greet.html', context)
 
+def search(lat, lng, category):
+  MAX_RANGE = 0.1
+  messages = Message.objects.all()
+  context = []
+  for m in messages:
+    if category and m.category not in category:
+      continue
+    res = {
+      'id': m.id,
+      'msg_type': m.msg_type,
+      'title': m.title,
+      'doc': m.doc,
+      'url': m.url,
+      'img_url': m.img_url,
+      'start_time': long(time.mktime(m.start_time.timetuple())*1000),
+      'end_time': long(time.mktime(m.end_time.timetuple())*1000),
+      'category': m.category,
+      'lat': float(m.lat),
+      'lng': float(m.lng),
+      'unlock_type': m.unlock_type,
+      'lock': m.lock,
+      'dist': math.sqrt((float(m.lat) - lat) ** 2 +
+                        (float(m.lng) - lng) ** 2)
+    }
+    context.append(res)
+
+  context = filter(lambda x: x['dist'] <= MAX_RANGE, context)
+  context = sorted(context, key=lambda x: x['dist'])
+  return context
+
 def search_api(request):
-  MAX_RANGE = 0.06
+  MAX_RANGE = 0.1
 
   if request.method != 'GET':
     raise Http404
@@ -80,6 +110,7 @@ def search_api(request):
   for m in messages:
     if category and m.category not in category:
       continue
+
     res = {
       'id': m.id,
       'msg_type': m.msg_type,
@@ -178,8 +209,24 @@ def generate_mock_message(request):
   return HttpResponse("mocking succeeded")
 
 def base_test(request):
-  return render(request, 'around_be/base.html', {})  
+  return render(request, 'around_be/base.html', {})
 
 def spots(request):
-  return render(request, 'around_be/spots.html', {})  
+  lat = 37.4253498
+  lng = -122.0765002
+  messages = search(lat, lng, [])
+  context = {}
+  context['messages'] = messages
+  return render(request, 'around_be/spots.html', context)  
 
+def spot(request, mid=None):
+  if not mid:
+    return HttpResponseNotFound('<h1>mid is null.</h1>')
+  
+  m = Message.objects.get(id=int(mid))
+  context = {}
+  context['message'] = m
+  return render(request, 'around_be/spot.html', context)  
+
+def map(request):
+  return render(request, 'around_be/map.html', {})

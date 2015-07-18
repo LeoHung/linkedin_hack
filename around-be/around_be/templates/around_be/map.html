@@ -1,2 +1,20 @@
 {% extends "around_be/base.html" %}
 {% load staticfiles %}
+
+{% block add-header %}
+<link rel="stylesheet" href="{% static 'around_be/css/map.css' %}">
+<!-- <script src="{% static 'around_be/js/map.js' %}"></script> -->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script src="{% static 'around_be/js/map.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div id="map-canvas">
+</div>
+{% endblock %}
+
+{% block footer %}
+<script>
+start_messages();
+</script>
+{% endblock %}

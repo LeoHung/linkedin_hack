@@ -9,7 +9,7 @@
 import UIKit
 
 class Detail: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
@@ -17,7 +17,9 @@ class Detail: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     @IBOutlet weak var avatarImageView: UIImageView!
     
     var data = Array<Dictionary<String,String>>()
+    var messageArray = Array<Dictionary<String,String>>()
     var number = 0
+    var titleText: String = ""
     var imageTest: UIImage?
     
     @IBAction func backButtonDidPress(sender: AnyObject) {
@@ -26,12 +28,25 @@ class Detail: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "detailToHome" {
+<<<<<<< HEAD
             let controller = segue.destinationViewController as! StartController
             //controller.data = data
             //controller.number = number
             //controller.isReturned = true
             //controller.photo = imageTest
             //controller.content = descriptionTextView.text
+=======
+            let controller = segue.destinationViewController as! Home
+            
+            messageArray.append(["doc": descriptionTextView.text])
+            controller.messageArray = messageArray
+            controller.titleText = titleText
+            controller.data = data
+            controller.number = number
+            controller.isReturned = true
+            controller.photo = imageTest
+            controller.content = descriptionTextView.text
+>>>>>>> 16b06ada2a01e84947b5498e289487eeccf145b8
         }
     }
     
@@ -41,7 +56,7 @@ class Detail: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     //////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         authorLabel.text = data[number]["author"]
         avatarImageView.image = UIImage(named: data[number]["avatar"]!)
         imageView.image = UIImage(named: data[number]["image"]!)
@@ -64,7 +79,7 @@ class Detail: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     override func prefersStatusBarHidden() -> Bool  {
         return true
     }
-
+    
     ///////////////////////////////////////////
     // Image
     ///////////////////////////////////////////
@@ -101,5 +116,5 @@ class Detail: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             presentViewController(imagePickerController, animated: true, completion: nil)
         }
     }
- 
+    
 }

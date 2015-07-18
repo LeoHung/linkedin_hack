@@ -31,10 +31,10 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Explore</a></li>
-            <li><a href="#">Spots</a></li>
+            <li><a href="#" id="spots">Spots</a></li>
             <li><a href="#">Create Spot</a></li>
           </ul>
-        </div>        
+        </div>
       </div>
     </nav>
     {% block content %}{% endblock %}
@@ -43,6 +43,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="{% static 'around_be/js/bootstrap.min.js' %}"></script>
+    {% block footer %}{% endblock %}
     <!--<script src="/static/around_be/js/docs.min.js"></script> -->
   </body>
 </html>

@@ -38,7 +38,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bkp-vJ-eXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-272" y="366"/>
+            <point key="canvasLocation" x="-612" y="422"/>
         </scene>
         <!--Home-->
         <scene sceneID="ufC-wZ-h7g">
@@ -74,7 +74,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.13" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hello " borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="WKi-VM-cL6">
+                                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.13" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="WKi-VM-cL6">
                                                         <rect key="frame" x="55" y="0.0" width="167" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -324,7 +324,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="d5b-5b-moa"/>
             </objects>
-            <point key="canvasLocation" x="168" y="490"/>
+            <point key="canvasLocation" x="28" y="422"/>
         </scene>
         <!--Detail-->
         <scene sceneID="5Iv-b2-ieD">
@@ -400,7 +400,7 @@ Behance</string>
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="650" y="366"/>
+            <point key="canvasLocation" x="658" y="422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wyn-l1-4BC">

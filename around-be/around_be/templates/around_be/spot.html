@@ -1,0 +1,24 @@
+{% extends "around_be/base.html" %}
+{% load staticfiles %}
+
+{% block add-header %}
+{% endblock %}
+
+{% block content %}
+<div class="container spacer-l">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="{{message.img_url}}" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <li class="list-group-item">{{message.title}}</li>
+        <li class="list-group-item"><a href="{{message.url}}"> Go from HERE! </a></li>
+        <li class="list-group-item">{{message.doc}}</li>
+      </ul>
+    </div><!-- /.col-sm-4 -->
+  </div>
+</div>
+{% endblock %}
