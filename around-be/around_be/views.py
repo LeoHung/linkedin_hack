@@ -75,9 +75,12 @@ def search_api(request):
     print "No lat lng"
     raise Http404
 
-  context = []
+  category = request.GET.getlist('category')
 
+  context = []
   for m in messages:
+    if category and m.category not in category:
+      continue
     res = {
       'id': m.id,
       'msg_type': m.msg_type,
