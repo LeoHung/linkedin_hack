@@ -1,15 +1,17 @@
+import json
+import datetime
+import time
+import math
+
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
 from django.http import Http404
 from django.shortcuts import render
-from mock_message_generator import *
-from around_be.models import Message
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 
-import json
-import datetime
-import time
+from around_be.models import Message
+from mock_message_generator import *
 
 def home_page(request):
   # render takes: (1) the request,
@@ -56,8 +58,7 @@ def greet(request):
   return render(request, 'around_be/greet.html', context)
 
 def search_api(request):
-  LAT_RANGE = 0.1
-  LNG_RANGE = 0.1
+  MAX_RANGE = 0.06
 
   if request.method != 'GET':
     raise Http404
@@ -68,11 +69,7 @@ def search_api(request):
   if lat and lng:
     lat = float(lat)
     lng = float(lng)
-    messages = Message.objects.filter(
-        lat__gte=lat - LAT_RANGE,
-        lat__lte=lat + LAT_RANGE,
-        lng__gte=lng - LNG_RANGE,
-        lng__lte=lng + LNG_RANGE)
+    messages = Message.objects.all()
   else:
     print "No lat lng"
     raise Http404
@@ -96,9 +93,14 @@ def search_api(request):
       'lat': float(m.lat),
       'lng': float(m.lng),
       'unlock_type': m.unlock_type,
-      'lock': m.lock
+      'lock': m.lock,
+      'dist': math.sqrt((float(m.lat) - lat) ** 2 +
+                        (float(m.lng) - lng) ** 2)
     }
     context.append(res)
+
+  context = filter(lambda x: x['dist'] <= MAX_RANGE, context)
+  context = sorted(context, key=lambda x: x['dist'])
   response_text = json.dumps(context)
   return HttpResponse(response_text, content_type='application/json')
 
