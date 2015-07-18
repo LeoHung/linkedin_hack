@@ -65,8 +65,8 @@ def get_all():
     hr_2_m['start_time'] = time.time()
     hr_2_m['end_time'] = time.time() + 100000000
     hr_2_m['category'] = 'hr'
-    hr_2_m['lat'] = 37.4584803
-    hr_2_m['lng'] = -122.130129
+    hr_2_m['lat'] = 37.4344439
+    hr_2_m['lng'] = -122.0706904
     hr_2_m['lock'] = False
     hr_2_m['unlock_type'] = None
     ret.append(hr_2_m)
