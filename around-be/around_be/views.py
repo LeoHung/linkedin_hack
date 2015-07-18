@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
+from django.http import Http404
 from django.shortcuts import render
 from mock_message_generator import *
 from around_be.models import Message
@@ -55,15 +56,30 @@ def greet(request):
   return render(request, 'around_be/greet.html', context)
 
 def search_api(request):
+  LAT_RANGE = 0.1
+  LNG_RANGE = 0.1
+
   if request.method != 'GET':
     raise Http404
 
-  messages = Message.objects.all()
+  lat = request.GET.get("lat")
+  lng = request.GET.get("lng")
+
+  if lat and lng:
+    lat = float(lat)
+    lng = float(lng)
+    messages = Message.objects.filter(
+        lat__gte=lat - LAT_RANGE,
+        lat__lte=lat + LAT_RANGE,
+        lng__gte=lng - LNG_RANGE,
+        lng__lte=lng + LNG_RANGE)
+  else:
+    print "No lat lng"
+    raise Http404
+
   context = []
-  # print len(messages)
 
   for m in messages:
-    # print m
     res = {
       'id': m.id,
       'msg_type': m.msg_type,
