@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from mock_message_generator import *
-from around_be.models import *
+from around_be.models import Message
 
 import json
+import datetime
+import time
 
 def home_page(request):
   # render takes: (1) the request,
@@ -53,31 +55,26 @@ def search_api(request):
   if request.method != 'GET':
     raise Http404
 
-  context = [
-    {
-      "mid": 1,
-      "title": "Pokemon !! ",
-      "img_url": "https://raw.githubusercontent.com/LeoHung/linkedin_hack/master/pseudo_api/img/11.png",
-      "lat": 37.4253498,
-      "lng": -122.0765002,
-      "time": 1437190740,
-      "lock": False,
-      "unlock_type": None,
-      "category": "pokemon"
-    },
-    {
-        "mid": 2,
-        "title": "Pokemon !! ",
-        "img_url": "https://raw.githubusercontent.com/LeoHung/linkedin_hack/master/pseudo_api/img/12.png",
-        "lat": 37.5253498,
-        "lng": -122.0165002,
-        "time": 1437190740,
-        "lock": False,
-        "unlock_type": None,
-        "category": "pokemon"
-    }
-  ]
+  messages = Message.objects.all()
+  context = []
+  print len(messages)
 
+  for m in messages:
+    print m
+    res = {
+      'id': m.id,
+      'msg_type': m.msg_type,
+      'title': m.title,
+      'doc': m.doc,
+      'url': m.url,
+      'img_url': m.img_url,
+      'start_time': long(time.mktime(m.start_time.timetuple())*1000),
+      'end_time': long(time.mktime(m.end_time.timetuple())*1000),
+      'category': m.category,
+      'lat': float(m.lat),
+      'lng': float(m.lng)
+    }
+    context.append(res)
   response_text = json.dumps(context)
   return HttpResponse(response_text, content_type='application/json')
 
@@ -87,20 +84,23 @@ def message_api(request):
 def message_upload(request):
   pass
 
-# def generate_mock_message(request):
-#   mock_objects = get_all()
+def generate_mock_message(request):
+  mock_objects = get_all()
   
-#   for obj in mock_objects:
-#     message = Messsage(
-#       msg_type = obj['msg_type'],
-#       title = obj['title'],
-#       doc = obj['doc'],
-#       url = obj['url'],
-#       img_url = obj['img_url'],
-#       start_time = obj['start_time'],
-#       end_time = obj['end_time'],
-#       category = obj['category'],
-#       unlock_type = obj['unlock_type'],
-#       lat = obj['lat'],
-#       lng = obj['lng'])
-#   return HttpResponse("mocking succeeded")
+  for obj in mock_objects:
+    message = Message(
+      msg_type = obj['msg_type'],
+      title = obj['title'],
+      doc = obj['doc'],
+      url = obj['url'],
+      img_url = obj['img_url'],
+      start_time = datetime.datetime.fromtimestamp(obj['start_time']).strftime('%Y-%m-%dT%H:%M:%S'),
+      end_time = datetime.datetime.fromtimestamp(obj['end_time']).strftime('%Y-%m-%dT%H:%M:%S'),
+      category = obj['category'],
+      unlock_type = obj['unlock_type'],
+      lat = obj['lat'],
+      lng = obj['lng']
+    )
+    message.save()
+
+  return HttpResponse("mocking succeeded")
