@@ -213,6 +213,9 @@ class Home: UIViewController {
             authorLabel.text = data[number]["author"]
             titleTextField.text = titleText
         } else {
+            
+            print(isReturned)
+            
             avatarImageView.image = UIImage(named: data[number]["avatar"]!)
             imageButton.setImage(UIImage(named: data[number]["image"]!), forState: UIControlState.Normal)
             

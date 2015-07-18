@@ -14,6 +14,10 @@
         <td style="width: 90px;"><img src="{{m.img_url}}" height="30" width="40"></td>
         <td id="td{{m.id}}"><a href="#" class="clickme" id="{{m.id}}">{{m.title}}</a></td>
       </tr>
+      {% empty %}
+      <tr>
+        <td>loading...</td>
+      </tr>
       {% endfor %}
     </tbody>
   </table>  
