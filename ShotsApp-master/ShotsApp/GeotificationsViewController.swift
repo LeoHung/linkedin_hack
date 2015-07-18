@@ -28,6 +28,10 @@ class GeotificationsViewController: UIViewController, AddGeotificationsViewContr
     locationManager.requestAlwaysAuthorization()
     // 3
     loadAllGeotifications()
+    var geo:[Geotification] = getMockGeotifications()
+    for g in geo {
+        addGeotification(g)
+    }
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -93,7 +97,7 @@ class GeotificationsViewController: UIViewController, AddGeotificationsViewContr
     // 1
     let clampedRadius = (radius > locationManager.maximumRegionMonitoringDistance) ? locationManager.maximumRegionMonitoringDistance : radius
 
-    let geotification = Geotification(coordinate: coordinate, radius: clampedRadius, identifier: identifier, note: note, eventType: eventType)
+    let geotification = Geotification(coordinate: coordinate, radius: clampedRadius, identifier: identifier, note: note)
     addGeotification(geotification)
     // 2
     startMonitoringGeotification(geotification)
@@ -176,8 +180,8 @@ class GeotificationsViewController: UIViewController, AddGeotificationsViewContr
     // 1
     let region = CLCircularRegion(center: geotification.coordinate, radius: geotification.radius, identifier: geotification.identifier)
     // 2
-    region.notifyOnEntry = (geotification.eventType == .OnEntry)
-    region.notifyOnExit = !region.notifyOnEntry
+    //region.notifyOnEntry = (geotification.eventType == .OnEntry)
+    //region.notifyOnExit = !region.notifyOnEntry
     return region
   }
 

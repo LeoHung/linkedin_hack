@@ -25,25 +25,33 @@ func zoomToUserLocationInMapView(mapView: MKMapView) {
   }
 }
 
-func getMockCardData() -> [MapData] {
+func getMockMapData() -> [MapData] {
     var dataList:[MapData] = []
+    var lats:[Double] = [37.425573169, 37.4587570421, 37.4631503089, 37.4563102904, 37.4661436654]
+    var lngs:[Double] = [-121.9981763898, -121.9859350066, -121.9884520557, -122.0150058779, -121.9847037757]
+    var titles:[NSString] = ["Pokemon nearby!", "Jeff Weiner nearby!", "HR contact nearby!", "Free food nearby!", "Taylor Swift nearby!"]
+    var messages:[NSString] = ["Someone hide a pokeman nearby", "Autograph from Jeff Weiner nearby", "LinkedIn HR contact email nearby", "A truck loaded with free food nearby", "Catch up with Taylor nearby"]
     
-    for i in 0..4 {
-        
-    }
-    
-    
-    for i in 0...7 {
-        var contact:Contact = contacts[i]
+    for i in 0...4 {
+        var lat:Double = lats[i]
+        var lng:Double = lngs[i]
+        var title:NSString = titles[i]
         var message:NSString = messages[i]
-        var monthDate:NSString = "Aug 30"
-        var year:NSString = "2013"
-        var sender = contact.name
-        var imageName:String = "TestImg" + String(i) + ".JPG"
-        var photo:UIImage = UIImage(named:imageName)!
-        
-        contact.name = "Jack Liao"
-        dataList.append(CardData(contact: contact, message: message, monthDate: monthDate, year: year, sender: sender, photo: photo))
+        dataList.append(MapData(title: title, message:message, lng:lng, lat:lat))
     }
+
     return dataList
+}
+
+func getMockGeotifications() -> [Geotification] {
+    var mapData:[MapData] = getMockMapData()
+    var output:[Geotification] = []
+    
+    for i in 0...mapData.count-1 {
+        var coordinates = CLLocationCoordinate2D(latitude: mapData[i].lat as
+            CLLocationDegrees, longitude: mapData[i].lng as CLLocationDegrees)
+        
+        output.append(Geotification(coordinate: coordinates, radius: 5 as CLLocationDistance, identifier: mapData[i].title as String, note: mapData[i].message as String))
+    }
+    return output
 }

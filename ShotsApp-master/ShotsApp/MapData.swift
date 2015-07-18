@@ -11,6 +11,6 @@ import Foundation
 struct MapData {
     var title:NSString
     var message:NSString
-    var lng:CLong
-    var lat:CLong
+    var lng:Double
+    var lat:Double
 }
