@@ -19,6 +19,10 @@ class StartController : UITabBarController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         if (isReturned) {
             print(content! + "\n")
             (self.viewControllers?[0] as? Home)!.data = data
@@ -27,10 +31,6 @@ class StartController : UITabBarController {
             (self.viewControllers?[0] as? Home)!.photo = photo
             (self.viewControllers?[0] as? Home)!.content = content
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 
 }
