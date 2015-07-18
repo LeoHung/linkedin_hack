@@ -41,6 +41,21 @@
             </objects>
             <point key="canvasLocation" x="-612" y="422"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CK6-vo-cP5">
+            <objects>
+                <navigationController id="7O3-qF-LwD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="m5H-ok-7yx"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B9A-uZ-u6b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LOF-ZJ-eK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-388" y="1357"/>
+        </scene>
         <!--Home-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -323,7 +338,11 @@
                         <action selector="setTime:" destination="vXZ-lx-hvc" id="wgS-79-7mp"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="d5b-5b-moa"/>
+                <tapGestureRecognizer id="d5b-5b-moa">
+                    <connections>
+                        <action selector="setLock1:" destination="vXZ-lx-hvc" id="Ewc-yX-Ux6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="28" y="422"/>
         </scene>

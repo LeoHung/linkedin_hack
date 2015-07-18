@@ -336,6 +336,49 @@ class Home: UIViewController {
     //////////////////////
     // Lock
     /////////////////////
+    @IBAction func setLock1(sender: UITapGestureRecognizer) {
+        var alertController:UIAlertController?
+        alertController = UIAlertController(title: "Lock it with text",
+            message: "",
+            preferredStyle: .Alert)
+        
+        alertController!.addTextFieldWithConfigurationHandler(
+            {(textField: UITextField!) in
+                textField.placeholder = "Question"
+        })
+        alertController!.addTextFieldWithConfigurationHandler(
+            {(textField: UITextField!) in
+                textField.placeholder = "Answer"
+        })
+        
+        let action = UIAlertAction(title: "Lock it!",
+            style: UIAlertActionStyle.Default,
+            handler: {[weak self]
+                (paramAction:UIAlertAction!) in
+                if let textFields = alertController?.textFields{
+                    let theTextFields = textFields as! [UITextField]
+                    let enteredText1 = theTextFields[0].text
+                    let enteredText2 = theTextFields[1].text
+                    
+                    self!.lockType = "text"
+                    self!.lockQuestioin = enteredText1
+                    self!.lockAnswer = enteredText2
+                    
+                    self!.messageArray.append(["lock":"true"])
+                    self!.messageArray.append(["unlockType":"text"])
+                    self!.messageArray.append(["lockAnswers":enteredText2])
+                    self!.messageArray.append(["lockQuestion":enteredText1])
+                }
+            })
+        
+        alertController?.addAction(action)
+        self.presentViewController(alertController!,
+            animated: true,
+            completion: nil)
+        hideShareView()
+
+    }
+    
     @IBAction func setLock(sender: UITapGestureRecognizer) {
         var alertController:UIAlertController?
         alertController = UIAlertController(title: "Lock it with text",
