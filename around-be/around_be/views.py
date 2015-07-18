@@ -6,12 +6,16 @@ import math
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
+from django.core.urlresolvers import reverse
+
 
 from around_be.models import Message
 from mock_message_generator import *
+
+from around_be.s3 import s3_upload
 
 def home_page(request):
   # render takes: (1) the request,
@@ -230,3 +234,33 @@ def spot(request, mid=None):
 
 def map(request):
   return render(request, 'around_be/map.html', {})
+
+def create_spot(request):
+  return render(request, 'around_be/create-spot.html', {})
+
+@csrf_exempt
+def add_spot(request):
+  if request.method != "POST":
+    raise Http404
+
+  print request.FILES['fileField'].name
+  img_url = s3_upload(request.FILES['fileField'], request.FILES['fileField'].name)
+  print img_url
+
+  message = Message(
+    msg_type = request.POST['msg_type'],
+    title = request.POST['title'],
+    doc = request.POST['doc'],
+    url = request.POST['url'],
+    img_url = img_url,
+    # start_time = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%dT%H:%M:%S'),
+    # end_time = datetime.datetime.fromtimestamp(time.time() + 100000000).strftime('%Y-%m-%dT%H:%M:%S'),
+    # category = request.POST['category'],
+    # lock = bool(request.POST['lock']),
+    # unlock_type = request.POST['unlock_type'],
+    lat = float(request.POST['lat']),
+    lng = float(request.POST['lng'])
+  )
+  message.save()
+
+  return redirect(reverse('map'))
