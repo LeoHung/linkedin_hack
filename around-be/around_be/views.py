@@ -75,8 +75,6 @@ def search(lat, lng, category):
       'doc': m.doc,
       'url': m.url,
       'img_url': m.img_url,
-      'start_time': long(time.mktime(m.start_time.timetuple())*1000),
-      'end_time': long(time.mktime(m.end_time.timetuple())*1000),
       'category': m.category,
       'lat': float(m.lat),
       'lng': float(m.lng),
@@ -85,6 +83,11 @@ def search(lat, lng, category):
       'dist': math.sqrt((float(m.lat) - lat) ** 2 +
                         (float(m.lng) - lng) ** 2)
     }
+    if m.start_time != None:
+      res['start_time'] = long(time.mktime(m.start_time.timetuple())*1000)
+    if m.end_time != None:
+      res['end_time'] = long(time.mktime(m.end_time.timetuple())*1000)
+
     context.append(res)
 
   context = filter(lambda x: x['dist'] <= MAX_RANGE, context)
@@ -122,8 +125,6 @@ def search_api(request):
       'doc': m.doc,
       'url': m.url,
       'img_url': m.img_url,
-      'start_time': long(time.mktime(m.start_time.timetuple())*1000),
-      'end_time': long(time.mktime(m.end_time.timetuple())*1000),
       'category': m.category,
       'lat': float(m.lat),
       'lng': float(m.lng),
@@ -132,6 +133,10 @@ def search_api(request):
       'dist': math.sqrt((float(m.lat) - lat) ** 2 +
                         (float(m.lng) - lng) ** 2)
     }
+    if m.start_time != None:
+      res['start_time'] = long(time.mktime(m.start_time.timetuple())*1000)
+    if m.end_time != None:
+      res['end_time'] = long(time.mktime(m.end_time.timetuple())*1000)
     context.append(res)
 
   context = filter(lambda x: x['dist'] <= MAX_RANGE, context)
@@ -152,14 +157,18 @@ def message_api(request, mid=None):
       'doc': m.doc,
       'url': m.url,
       'img_url': m.img_url,
-      'start_time': long(time.mktime(m.start_time.timetuple())*1000),
-      'end_time': long(time.mktime(m.end_time.timetuple())*1000),
       'category': m.category,
       'lat': float(m.lat),
       'lng': float(m.lng),
       'unlock_type': m.unlock_type,
       'lock': m.lock
     }
+    
+    if m.start_time != None:
+      res['start_time'] = long(time.mktime(m.start_time.timetuple())*1000)
+    if m.end_time != None:
+      res['end_time'] = long(time.mktime(m.end_time.timetuple())*1000)
+
     return HttpResponse(json.dumps(res), content_type='application/json')
   except Exception as e:
     print e
