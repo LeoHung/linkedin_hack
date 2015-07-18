@@ -1,39 +1,30 @@
 //
 //  StartController.swift
-//  Around
+//  ShotsApp
 //
-//  Created by Xu Abby He on 7/17/15.
-//  Copyright (c) 2015 Abby He. All rights reserved.
+//  Created by Xu Abby He on 7/18/15.
+//  Copyright (c) 2015 Yogesh Nagarur. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class StartController: UIViewController {
+class StartController : UITabBarController {
     
-    var listTaskController:ListTaskController = ListTaskController()
-    //var createTaskController:CreateTaskController = CreateTaskController()
-    var createTaskController:Home = Home()
-    var doTaskController:DoTaskController = DoTaskController()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let item0 : UITabBarItem = self.tabBar.items?[0] as! UITabBarItem
+        var item1 : UITabBarItem = self.tabBar.items?[1] as! UITabBarItem
+        //var item2 : UITabBarItem = self.tabBar.items?[2] as! UITabBarItem
+        item0.title = "Create"
+        item1.title = "List"
+        //item2.title = "Explore"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        listTaskController = ListTaskController(nibName: "ListTaskController", bundle: nil)
-        //createTaskController = CreateTaskController(nibName: "CreateTaskController", bundle: nil)
-        createTaskController = Home()
-        doTaskController = DoTaskController(nibName: "DoTaskController", bundle: nil)
-    }
-    
-    @IBAction func onCreateTaskClicked(sender:UIButton) {
-        self.presentViewController(createTaskController, animated: true, completion: {})
     }
     
     
-    @IBAction func onListTaskClicked(sender:UIButton) {
-        self.presentViewController(listTaskController, animated: true, completion: {})
-    }
-    
-    @IBAction func onDoTaskClicked(sender:UIButton) {
-        self.presentViewController(doTaskController, animated: true, completion: {})
-    }
-    
+
 }
