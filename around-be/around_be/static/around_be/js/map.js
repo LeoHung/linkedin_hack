@@ -26,6 +26,23 @@ function start_initialize() {
 // google.maps.event.addDomListener(window, 'load', initialize);
 google.maps.event.addDomListener(window, 'load', start_initialize);
 
+function infoCallback(infowindow, marker) {
+
+    if (infowindow) {
+        infowindow.close();
+    }
+    return function() {
+        console.log(marker.title);
+        console.log(marker.id);
+        infowindow.setContent("<a href='/spot/"+marker.id+"'>"+marker.title+"</a>");
+        map.panTo(marker.getPosition());
+        infowindow.open(map, marker);
+    };
+}
+
+var infowindow  = new google.maps.InfoWindow();
+
+
 function get_messages(position) {
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
@@ -37,8 +54,16 @@ function get_messages(position) {
                     position: new google.maps.LatLng(m.lat, m.lng),
                     map: map,
                     animation: google.maps.Animation.DROP,
-                    icon: {url:m.img_url, scaledSize: new google.maps.Size(30, 30)}
+                    icon: {url:m.img_url, scaledSize: new google.maps.Size(50, 50)},
+                    title: m.title,
+                    id: m.id
                 });
+                marker.url = "/spot/"+m.id+"/";
+
+                // infowindow = new google.maps.InfoWindow();
+
+                google.maps.event.addListener(marker, 'click', infoCallback(infowindow, marker));
+
                 markers.push(marker);
             }
             console.log(markers);
@@ -52,6 +77,7 @@ function get_messages(position) {
         animation: google.maps.Animation.BOUNCE
     });
 }
+
 
 // function start_messages() {
 //     if (navigator.geolocation) {

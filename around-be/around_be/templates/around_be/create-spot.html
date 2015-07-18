@@ -1,2 +1,43 @@
 {% extends "around_be/base.html" %}
 {% load staticfiles %}
+
+{% block add-header %}
+<script type="text/javascript" src="{% static 'around_be/js/create-spot.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container spacer-l">
+  <div class="row">
+    <div class="col-md-12"> 
+      <form method="post" action="{% url 'add_spot' %}" name="submit" enctype="multipart/form-data">
+        <div class="col-md-12">
+          <ul class="list-group">
+            <li class="list-group-item">Upload Picture</li>
+            <li class="list-group-item"><input type="file" name="fileField"></li>
+            <li class="list-group-item">Select Message Type</li>
+            <li class="list-group-item">
+              <select name="msg_type">
+                <option value="pokemon">Pokemon</option>
+                <option value="match_day">Match Day</option>
+                <option value="hr_contact">HR Contact</option>
+                <option value="linkedin_profile_link">LinkedIn Profile</option>
+                <option value="youtube_links">Youtube Video</option>
+                <option value="spam">Spam</option>
+              </select>
+            </li>
+            <li class="list-group-item">Title</li>
+            <li class="list-group-item"><input type="text" name="title"></li>
+            <li class="list-group-item">Description</li>
+            <li class="list-group-item"><input type="text" name="doc"></li>
+            <li class="list-group-item">Url</li>
+            <li class="list-group-item"><input type="text" name="url"></li>
+            <li class="list-group-item"><input type="hidden" name="lat" value="37.4247649"></li>
+            <li class="list-group-item"><input type="hidden" name="lng" value="-122.0781952"></li>
+            <li class="list-group-item"><input type="submit" id="submit" name="submit" value="Submit"></li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

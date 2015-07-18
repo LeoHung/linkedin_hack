@@ -221,7 +221,6 @@ class Home: UIViewController {
             titleTextField.text = data[number]["title"]
         }
         
-        
         dialogView.alpha = 1
     }
     

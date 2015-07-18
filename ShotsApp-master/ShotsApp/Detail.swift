@@ -29,11 +29,11 @@ class Detail: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "detailToHome" {
             let controller = segue.destinationViewController as! StartController
-            //controller.data = data
-            //controller.number = number
-            //controller.isReturned = true
-            //controller.photo = imageTest
-            //controller.content = descriptionTextView.text
+            controller.data = data
+            controller.number = number
+            controller.isReturned = true
+            controller.photo = imageTest
+            controller.content = descriptionTextView.text
         }
     }
     
