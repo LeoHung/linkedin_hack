@@ -12,32 +12,32 @@ func getData() -> Array<Dictionary<String,String>> {
     
     var data = [
         [
-            "title" : "New Message",
+            "title" : "Pokemon Nearby!",
             "author": "Mike",
             "image" : "lego",
             "avatar": "avatar",
-            "text"  : "content"
+            "text"  : "Someone hide a pokemon nearby, see if you can find it!"
         ],
         [
-            "title": "Secret Trips",
-            "author": "Alexander Zaytsev",
+            "title": "Jeff Weiner Nearby!",
+            "author": "Alex",
             "image": "image2",
             "avatar": "avatar2",
-            "text"  : "Hey,\n\nI'm working on app for tracking your trips.\n\nSee the attachments as always."
+            "text"  : "Hey guys,\n\nJeff will be hanging around the campus. He will be happy to talk to you anytime between now and 3 pm."
         ],
         [
-            "title": "Ford Model T - Comic",
-            "author": "Konstantin Datz",
+            "title": "HR Contact Nearby",
+            "author": "Ron",
             "image": "image3",
             "avatar": "avatar3",
-            "text"  : "hey guys,\n\nhope you are doing well :)\n\ni was working on a comic version of the old Ford Model T in my spare time. im still not 100% happy with the background but wanted to come to an end.\n\nalso atteched the large version and if you are interested a comparison of the rendering and the postwork.\n\nplease let me know if you like it ♥\n\ncheers!"
+            "text"  : "Some LinkedIn HRs hide their email address around the campus. This is the best chance to submit your resume and impress them."
         ],
         [
-            "title": "Music",
-            "author": "Rovane Durso",
+            "title": "Taylor's New Song Nearby",
+            "author": "Snoop Dog",
             "image": "image4",
             "avatar": "avatar4",
-            "text"  : "hope you all had a good weekend!\n\nbig pixel version attached."
+            "text"  : "Checkout the Cafe near the corner before 4 pm today, and be the first one listening to Taylor's new song!"
         ],
     ]
     

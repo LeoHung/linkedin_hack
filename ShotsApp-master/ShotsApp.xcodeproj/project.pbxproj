@@ -27,6 +27,9 @@
 		96D9E97B198808B5009D7A10 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9E976198808B5009D7A10 /* Misc.swift */; };
 		96D9E97C198808B5009D7A10 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9E977198808B5009D7A10 /* SpringAnimation.swift */; };
 		96D9E9801988357D009D7A10 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9E97F1988357D009D7A10 /* Detail.swift */; };
+		A86694561B5AB3970010132E /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86694521B5AB3970010132E /* Common.swift */; };
+		A86694581B5AB3970010132E /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86694541B5AB3970010132E /* TodoModel.swift */; };
+		A866945A1B5AB3F60010132E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86694591B5AB3F60010132E /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		96D9E976198808B5009D7A10 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		96D9E977198808B5009D7A10 /* SpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
 		96D9E97F1988357D009D7A10 /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
+		A86694521B5AB3970010132E /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = ../../../Todo/Todo/Common.swift; sourceTree = "<group>"; };
+		A86694541B5AB3970010132E /* TodoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoModel.swift; path = ../../../Todo/Todo/TodoModel.swift; sourceTree = "<group>"; };
+		A86694591B5AB3F60010132E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../Todo/Todo/ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 		96D9E94D1987FAE8009D7A10 /* ShotsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A86694591B5AB3F60010132E /* ViewController.swift */,
+				A86694521B5AB3970010132E /* Common.swift */,
+				A86694541B5AB3970010132E /* TodoModel.swift */,
 				96D9E972198808B5009D7A10 /* Spring */,
 				96D9E96D1987FB62009D7A10 /* font */,
 				96D9E9501987FAE8009D7A10 /* AppDelegate.swift */,
@@ -273,15 +282,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A86694561B5AB3970010132E /* Common.swift in Sources */,
 				50DE4E721B5A56E400E0F93F /* AddGeotificationViewController.swift in Sources */,
 				50DE4E771B5A584400E0F93F /* StartController.swift in Sources */,
 				96D9E9711987FE72009D7A10 /* Home.swift in Sources */,
 				96D9E9511987FAE8009D7A10 /* AppDelegate.swift in Sources */,
 				50DE4E731B5A56E400E0F93F /* Geotification.swift in Sources */,
 				96D9E9801988357D009D7A10 /* Detail.swift in Sources */,
+				A86694581B5AB3970010132E /* TodoModel.swift in Sources */,
 				96D9E978198808B5009D7A10 /* BlurView.swift in Sources */,
 				50DE4E751B5A56E400E0F93F /* Utilities.swift in Sources */,
 				96D9E97B198808B5009D7A10 /* Misc.swift in Sources */,
+				A866945A1B5AB3F60010132E /* ViewController.swift in Sources */,
 				96D9E97C198808B5009D7A10 /* SpringAnimation.swift in Sources */,
 				50DE4E7D1B5A60FF00E0F93F /* MapData.swift in Sources */,
 				96D9E97A198808B5009D7A10 /* DesignableView.swift in Sources */,

@@ -7,9 +7,10 @@ from boto.s3.key import Key
 # config = ConfigParser.ConfigParser()
 # config.read("config.ini")
 
-AWS_ACCESS_KEY = os.environ['S3_ACCESS_KEY']
-AWS_SECRET_ACCESS_KEY = os.environ['S3_SECRET_KEY']
-S3_BUCKET = os.environ['S3_BUCKET_NAME']
+from keys import S3_ACCESS_KEY, S3_SECRET_KEY, S3_BUCKET_NAME
+AWS_ACCESS_KEY = S3_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY = S3_SECRET_KEY
+S3_BUCKET = S3_BUCKET_NAME
 
 def s3_upload(uploaded_file, id):
     s3conn = boto.connect_s3(AWS_ACCESS_KEY,AWS_SECRET_ACCESS_KEY)
