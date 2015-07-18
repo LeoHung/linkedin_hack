@@ -20,9 +20,6 @@ def home_page(request):
   #                   available to the view.
   return render(request, 'around_be/index.html', {})
 
-def map(request):
-
-
 def hello_world(request):
   # Just return an HttpResponse object with the HTML we want to send
   html="""

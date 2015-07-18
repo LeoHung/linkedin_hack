@@ -14,7 +14,7 @@
       </tr> -->
       {% for m in messages %}
       <tr id="tr{{m.id}}">
-        <td style="width: 90px;"><img src="{{m.img_url}}"></td>
+        <td style="width: 90px;"><img src="{{m.img_url}}" height="30" width="40"></td>
         <td id="td{{m.id}}"><a href="#" class="clickme" id="{{m.id}}">{{m.title}}</a></td>
       </tr>
       {% endfor %}
