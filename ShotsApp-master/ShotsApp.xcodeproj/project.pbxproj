@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50DE4E721B5A56E400E0F93F /* AddGeotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4E6E1B5A56E400E0F93F /* AddGeotificationViewController.swift */; };
+		50DE4E731B5A56E400E0F93F /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4E6F1B5A56E400E0F93F /* Geotification.swift */; };
+		50DE4E741B5A56E400E0F93F /* GeotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4E701B5A56E400E0F93F /* GeotificationsViewController.swift */; };
+		50DE4E751B5A56E400E0F93F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4E711B5A56E400E0F93F /* Utilities.swift */; };
+		50DE4E771B5A584400E0F93F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4E761B5A584400E0F93F /* StartController.swift */; };
 		96D9E9511987FAE8009D7A10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9E9501987FAE8009D7A10 /* AppDelegate.swift */; };
 		96D9E9561987FAE8009D7A10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D9E9541987FAE8009D7A10 /* Main.storyboard */; };
 		96D9E9581987FAE8009D7A10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D9E9571987FAE8009D7A10 /* Images.xcassets */; };
@@ -32,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50DE4E6E1B5A56E400E0F93F /* AddGeotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGeotificationViewController.swift; sourceTree = "<group>"; };
+		50DE4E6F1B5A56E400E0F93F /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
+		50DE4E701B5A56E400E0F93F /* GeotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeotificationsViewController.swift; sourceTree = "<group>"; };
+		50DE4E711B5A56E400E0F93F /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		50DE4E761B5A584400E0F93F /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		96D9E94B1987FAE8009D7A10 /* ShotsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShotsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D9E94F1987FAE8009D7A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96D9E9501987FAE8009D7A10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +105,11 @@
 				96D9E9701987FE72009D7A10 /* Home.swift */,
 				96D9E97F1988357D009D7A10 /* Detail.swift */,
 				96D9E9541987FAE8009D7A10 /* Main.storyboard */,
+				50DE4E761B5A584400E0F93F /* StartController.swift */,
+				50DE4E6E1B5A56E400E0F93F /* AddGeotificationViewController.swift */,
+				50DE4E6F1B5A56E400E0F93F /* Geotification.swift */,
+				50DE4E701B5A56E400E0F93F /* GeotificationsViewController.swift */,
+				50DE4E711B5A56E400E0F93F /* Utilities.swift */,
 				96D9E9571987FAE8009D7A10 /* Images.xcassets */,
 				96D9E94E1987FAE8009D7A10 /* Supporting Files */,
 			);
@@ -247,13 +262,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50DE4E721B5A56E400E0F93F /* AddGeotificationViewController.swift in Sources */,
+				50DE4E771B5A584400E0F93F /* StartController.swift in Sources */,
 				96D9E9711987FE72009D7A10 /* Home.swift in Sources */,
 				96D9E9511987FAE8009D7A10 /* AppDelegate.swift in Sources */,
+				50DE4E731B5A56E400E0F93F /* Geotification.swift in Sources */,
 				96D9E9801988357D009D7A10 /* Detail.swift in Sources */,
 				96D9E978198808B5009D7A10 /* BlurView.swift in Sources */,
+				50DE4E751B5A56E400E0F93F /* Utilities.swift in Sources */,
 				96D9E97B198808B5009D7A10 /* Misc.swift in Sources */,
 				96D9E97C198808B5009D7A10 /* SpringAnimation.swift in Sources */,
 				96D9E97A198808B5009D7A10 /* DesignableView.swift in Sources */,
+				50DE4E741B5A56E400E0F93F /* GeotificationsViewController.swift in Sources */,
 				96D9E979198808B5009D7A10 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

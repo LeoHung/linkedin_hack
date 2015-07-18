@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ev9-Ec-DdZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -22,6 +22,25 @@
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--Start Controller-->
+        <scene sceneID="ZiY-KY-PVB">
+            <objects>
+                <tabBarController id="ev9-Ec-DdZ" customClass="StartController" customModule="ShotsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="b6A-eq-Gan">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aEd-fC-Rzc" kind="relationship" relationship="viewControllers" id="Pzj-z4-KUJ"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="6A0-Db-5Rt"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bkp-vJ-eXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-408" y="366"/>
+        </scene>
         <!--Home-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -269,6 +288,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="Vsn-Ea-hrO"/>
                     <navigationItem key="navigationItem" id="cFZ-Am-rfD"/>
                     <connections>
                         <outlet property="authorLabel" destination="Q1b-ZB-Fz1" id="BbI-JZ-QdF"/>
@@ -369,8 +389,194 @@ Behance</string>
             </objects>
             <point key="canvasLocation" x="602" y="366"/>
         </scene>
+        <!--Geotifications (0)-->
+        <scene sceneID="Sev-d0-yUk">
+            <objects>
+                <viewController id="aEd-fC-Rzc" customClass="GeotificationsViewController" customModule="Geotify" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rk6-kQ-1PU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" id="vY6-fc-0JJ">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="aEd-fC-Rzc" id="RTD-QS-SBr"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="rAq-Bo-2zA"/>
+                    <navigationItem key="navigationItem" title="Geotifications (0)" id="3ib-zh-0d5">
+                        <barButtonItem key="leftBarButtonItem" image="CurrentLocation" id="2kb-6t-vU5">
+                            <connections>
+                                <action selector="zoomToCurrentLocation:" destination="aEd-fC-Rzc" id="8hd-TJ-Z3S"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3YS-hp-ivU">
+                            <connections>
+                                <segue destination="6yD-RY-N6k" kind="presentation" identifier="addGeotification" id="bXD-oB-e2F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="vY6-fc-0JJ" id="fZz-99-fz9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3k8-nq-8gc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155" y="1325"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8wU-zK-Lcq">
+            <objects>
+                <navigationController id="6yD-RY-N6k" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cbh-ih-I9q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cQ5-pq-LzN" kind="relationship" relationship="rootViewController" id="nni-gR-x5V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e0N-Ds-UCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321" y="1325"/>
+        </scene>
+        <!--Add Geotification-->
+        <scene sceneID="qnF-5m-DIy">
+            <objects>
+                <tableViewController id="cQ5-pq-LzN" customClass="AddGeotificationViewController" customModule="Geotify" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xn4-JK-qbT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="MMK-3O-nwa">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="300" id="TjE-Zd-kWe">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TjE-Zd-kWe" id="ByL-9p-NqC">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="299.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="T5g-qu-Qp6">
+                                                    <rect key="frame" x="8" y="10" width="398" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Upon Entry"/>
+                                                        <segment title="Upon Exit"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" id="xec-be-yxi">
+                                                    <rect key="frame" x="8" y="48" width="398" height="243"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="xn4-JK-qbT" id="czd-KM-22b"/>
+                                                    </connections>
+                                                </mapView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddPin" id="5pj-e8-cT4">
+                                                    <rect key="frame" x="170" y="132" width="75" height="75"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="n3n-lw-P9a">
+                                        <rect key="frame" x="0.0" y="364" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n3n-lw-P9a" id="w2S-hZ-DUr">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" placeholder="Radius in meters" minimumFontSize="17" id="3RC-Ft-NP0">
+                                                    <rect key="frame" x="73" y="14" width="318" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    <connections>
+                                                        <action selector="textFieldEditingChanged:" destination="cQ5-pq-LzN" eventType="editingChanged" id="zuE-a7-FSO"/>
+                                                    </connections>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="50b-Ss-aIb">
+                                                    <rect key="frame" x="14" y="13" width="49" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="C1s-Cj-oes">
+                                        <rect key="frame" x="0.0" y="408" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C1s-Cj-oes" id="GUi-FD-9J7">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Reminder note to be shown" minimumFontSize="17" id="vmd-LG-G2w">
+                                                    <rect key="frame" x="73" y="13" width="318" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <action selector="textFieldEditingChanged:" destination="cQ5-pq-LzN" eventType="editingChanged" id="aKy-wA-8O0"/>
+                                                    </connections>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hdm-iA-jbk">
+                                                    <rect key="frame" x="14" y="13" width="34" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="cQ5-pq-LzN" id="lpE-I0-hrk"/>
+                            <outlet property="delegate" destination="cQ5-pq-LzN" id="Nqr-L5-5d7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Geotification" id="ZYG-Ww-lYt">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="6B3-Yn-1BW">
+                            <connections>
+                                <action selector="onCancel:" destination="cQ5-pq-LzN" id="3oS-zq-hrJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="LEj-5D-vZi" id="UNj-7R-bfe"/>
+                        <outlet property="eventTypeSegmentedControl" destination="T5g-qu-Qp6" id="afk-P9-485"/>
+                        <outlet property="mapView" destination="xec-be-yxi" id="aXX-mx-lUW"/>
+                        <outlet property="noteTextField" destination="vmd-LG-G2w" id="VJa-au-IHj"/>
+                        <outlet property="radiusTextField" destination="3RC-Ft-NP0" id="tYY-wc-7lQ"/>
+                        <outlet property="zoomButton" destination="9l7-GZ-RTA" id="GOR-t0-Q9f"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kms-WB-bg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Add" id="LEj-5D-vZi">
+                    <connections>
+                        <action selector="onAdd:" destination="cQ5-pq-LzN" id="16k-GJ-Qge"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem image="CurrentLocation" id="9l7-GZ-RTA" userLabel="CurrentLocation">
+                    <connections>
+                        <action selector="onZoomToCurrentLocation:" destination="cQ5-pq-LzN" id="c7O-eE-9jX"/>
+                    </connections>
+                </barButtonItem>
+            </objects>
+            <point key="canvasLocation" x="798" y="1320"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="AddPin" width="15" height="15"/>
+        <image name="CurrentLocation" width="15" height="15"/>
         <image name="avatar" width="160" height="160"/>
         <image name="backbutton" width="41" height="41"/>
         <image name="button-user" width="40" height="40"/>
@@ -393,6 +599,6 @@ Behance</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cEL-eI-NCu"/>
+        <segue reference="6A0-Db-5Rt"/>
     </inferredMetricsTieBreakers>
 </document>
