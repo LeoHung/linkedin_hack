@@ -11,18 +11,26 @@ import UIKit
 
 class StartController : UITabBarController {
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    var data: Array<Dictionary<String,String>> = Array<Dictionary<String,String>>()
+    var number = 0
+    var isReturned = false
+    var photo: UIImage!
+    var content: String?
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (isReturned) {
+            print(content! + "\n")
+            (self.viewControllers?[0] as? Home)!.data = data
+            (self.viewControllers?[0] as? Home)!.number = number
+            (self.viewControllers?[0] as? Home)!.isReturned = isReturned
+            (self.viewControllers?[0] as? Home)!.photo = photo
+            (self.viewControllers?[0] as? Home)!.content = content
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let item0 : UITabBarItem = self.tabBar.items?[0] as! UITabBarItem
-        var item1 : UITabBarItem = self.tabBar.items?[1] as! UITabBarItem
-        item0.title = "Create"
-        item1.title = "List"
     }
-    
-    
 
 }
