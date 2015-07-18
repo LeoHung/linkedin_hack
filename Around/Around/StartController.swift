@@ -21,4 +21,17 @@ class StartController: UIViewController {
         doTaskController = DoTaskController(nibName: "DoTaskController", bundle: nil)
     }
     
+    @IBAction func onCreateTaskClicked(sender:UIButton) {
+        self.presentViewController(createTaskController, animated: true, completion: {})
+    }
+    
+    
+    @IBAction func onListTaskClicked(sender:UIButton) {
+        self.presentViewController(listTaskController, animated: true, completion: {})
+    }
+    
+    @IBAction func onDoTaskClicked(sender:UIButton) {
+        self.presentViewController(doTaskController, animated: true, completion: {})
+    }
+    
 }

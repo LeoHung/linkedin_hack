@@ -15,8 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+            window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            if let window = self.window {
+                window.rootViewController = StartController(nibName: "StartController", bundle: nil)
+                window.makeKeyAndVisible()
+            }
+            return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
