@@ -11,5 +11,6 @@ class Message(models.Model):
 	end_time = models.DateTimeField(null=True)
 	category = models.CharField(max_length=20)
 	unlock_type = models.CharField(max_length=20, null=True)
+	lock = models.BooleanField(default=False)
 	lat = models.DecimalField(decimal_places=10, max_digits=15, null=True)
 	lng = models.DecimalField(decimal_places=10, max_digits=15, null=True)

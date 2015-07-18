@@ -58,10 +58,10 @@ def search_api(request):
 
   messages = Message.objects.all()
   context = []
-  print len(messages)
+  # print len(messages)
 
   for m in messages:
-    print m
+    # print m
     res = {
       'id': m.id,
       'msg_type': m.msg_type,
@@ -73,7 +73,9 @@ def search_api(request):
       'end_time': long(time.mktime(m.end_time.timetuple())*1000),
       'category': m.category,
       'lat': float(m.lat),
-      'lng': float(m.lng)
+      'lng': float(m.lng),
+      'unlock_type': m.unlock_type,
+      'lock': m.lock
     }
     context.append(res)
   response_text = json.dumps(context)
@@ -96,7 +98,9 @@ def message_api(request, mid=None):
       'end_time': long(time.mktime(m.end_time.timetuple())*1000),
       'category': m.category,
       'lat': float(m.lat),
-      'lng': float(m.lng)
+      'lng': float(m.lng),
+      'unlock_type': m.unlock_type,
+      'lock': m.lock
     }
     return HttpResponse(json.dumps(res), content_type='application/json')
   except Exception as e:
@@ -119,6 +123,7 @@ def generate_mock_message(request):
       start_time = datetime.datetime.fromtimestamp(obj['start_time']).strftime('%Y-%m-%dT%H:%M:%S'),
       end_time = datetime.datetime.fromtimestamp(obj['end_time']).strftime('%Y-%m-%dT%H:%M:%S'),
       category = obj['category'],
+      lock = obj['lock'],
       unlock_type = obj['unlock_type'],
       lat = obj['lat'],
       lng = obj['lng']
