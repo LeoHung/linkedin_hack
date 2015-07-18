@@ -81,15 +81,20 @@ def search_api(request):
   response_text = json.dumps(context)
   return HttpResponse(response_text, content_type='application/json')
 
-def message_api(request):
-  pass
+def message_api(request, mid=None):
+  if not mid:
+    return HttpResponseNotFound('<h1>mid is null.</h1>')
+
+  response_text = 'Hello mid = %s' % mid
+  return HttpResponse(response_text, content_type='application/json')
+
 
 def message_upload(request):
   pass
 
 # def generate_mock_message(request):
 #   mock_objects = get_all()
-  
+
 #   for obj in mock_objects:
 #     message = Messsage(
 #       msg_type = obj['msg_type'],
