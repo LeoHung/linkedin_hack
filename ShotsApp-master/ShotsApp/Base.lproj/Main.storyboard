@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ev9-Ec-DdZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ev9-Ec-DdZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -38,7 +38,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bkp-vJ-eXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-388" y="366"/>
+            <point key="canvasLocation" x="-612" y="422"/>
         </scene>
         <!--Home-->
         <scene sceneID="ufC-wZ-h7g">
@@ -322,13 +322,9 @@
                         <action selector="setTime:" destination="vXZ-lx-hvc" id="wgS-79-7mp"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="d5b-5b-moa">
-                    <connections>
-                        <action selector="setLock:" destination="vXZ-lx-hvc" id="5Fa-s6-jT5"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="d5b-5b-moa"/>
             </objects>
-            <point key="canvasLocation" x="168" y="366.36000000000001"/>
+            <point key="canvasLocation" x="28" y="422"/>
         </scene>
         <!--Detail-->
         <scene sceneID="5Iv-b2-ieD">
@@ -354,6 +350,7 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonDidPress:" destination="6nb-ye-CDC" eventType="touchUpInside" id="wKT-0r-LIw"/>
+                                    <segue destination="ev9-Ec-DdZ" kind="modal" identifier="detailToHome" id="Knf-11-Akc"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" id="dog-x8-5rG">
@@ -394,7 +391,6 @@ Behance</string>
                         <outlet property="backButton" destination="Nuu-ac-IfC" id="9AO-wf-IdF"/>
                         <outlet property="descriptionTextView" destination="GMF-Oz-YwN" id="RPg-Ka-sUG"/>
                         <outlet property="imageView" destination="M17-vE-6VJ" id="6dQ-Wb-rZX"/>
-                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="detailToHome" animates="NO" id="cEL-eI-NCu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFs-bZ-TJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -404,13 +400,13 @@ Behance</string>
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="774" y="366"/>
+            <point key="canvasLocation" x="658" y="422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wyn-l1-4BC">
             <objects>
                 <navigationController id="dcC-Gf-egK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="x7Z-vG-Rjr"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="x7Z-vG-Rjr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g5w-ne-oFk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -492,7 +488,7 @@ Behance</string>
                             <tableViewSection id="5DS-tF-RkB">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="300" id="jXB-12-niH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        <rect key="frame" x="0.0" y="64" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jXB-12-niH" id="T8n-Sf-zQx">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="299.5"/>
@@ -513,7 +509,7 @@ Behance</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7LP-bl-Z5b">
-                                        <rect key="frame" x="0.0" y="300" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="364" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7LP-bl-Z5b" id="ksI-BL-iAD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -538,7 +534,7 @@ Behance</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YqC-oU-jtN">
-                                        <rect key="frame" x="0.0" y="344" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="408" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YqC-oU-jtN" id="tXw-dS-HCo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -626,6 +622,6 @@ Behance</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cEL-eI-NCu"/>
+        <segue reference="6A0-Db-5Rt"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -27,7 +27,7 @@ class Geotification: NSObject, NSCoding, MKAnnotation {
   var radius: CLLocationDistance
   var identifier: String
   var note: String
-  var eventType: EventType
+  //var eventType: EventType
 
   var title: String {
     if note.isEmpty {
@@ -36,17 +36,17 @@ class Geotification: NSObject, NSCoding, MKAnnotation {
     return note
   }
 
-  var subtitle: String {
-    var eventTypeString = eventType == .OnEntry ? "On Entry" : "On Exit"
-    return "Radius: \(radius)m - \(eventTypeString)"
-  }
+//  var subtitle: String {
+//    var eventTypeString = eventType == .OnEntry ? "On Entry" : "On Exit"
+//    return "Radius: \(radius)m - \(eventTypeString)"
+//  }
 
-  init(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String, note: String, eventType: EventType) {
+  init(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String, note: String) {
     self.coordinate = coordinate
     self.radius = radius
     self.identifier = identifier
     self.note = note
-    self.eventType = eventType
+    //self.eventType = eventType
   }
 
   // MARK: NSCoding
@@ -58,7 +58,7 @@ class Geotification: NSObject, NSCoding, MKAnnotation {
     radius = decoder.decodeDoubleForKey(kGeotificationRadiusKey)
     identifier = decoder.decodeObjectForKey(kGeotificationIdentifierKey) as! String
     note = decoder.decodeObjectForKey(kGeotificationNoteKey) as! String
-    eventType = EventType(rawValue: decoder.decodeIntegerForKey(kGeotificationEventTypeKey))!
+    //eventType = EventType(rawValue: decoder.decodeIntegerForKey(kGeotificationEventTypeKey))!
   }
 
   func encodeWithCoder(coder: NSCoder) {
@@ -67,6 +67,6 @@ class Geotification: NSObject, NSCoding, MKAnnotation {
     coder.encodeDouble(radius, forKey: kGeotificationRadiusKey)
     coder.encodeObject(identifier, forKey: kGeotificationIdentifierKey)
     coder.encodeObject(note, forKey: kGeotificationNoteKey)
-    coder.encodeInt(Int32(eventType.rawValue), forKey: kGeotificationEventTypeKey)
+    //coder.encodeInt(Int32(eventType.rawValue), forKey: kGeotificationEventTypeKey)
   }
 }
