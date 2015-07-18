@@ -413,7 +413,7 @@ Behance</string>
         <!--Geotifications (0)-->
         <scene sceneID="k2G-H7-wFN">
             <objects>
-                <viewController id="3fO-KN-gd2" customClass="GeotificationsViewController" customModule="Geotify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3fO-KN-gd2" customClass="GeotificationsViewController" customModule="ShotsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uFt-Pv-zCK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,7 +469,7 @@ Behance</string>
         <!--Add Geotification-->
         <scene sceneID="Wlv-AG-HRt">
             <objects>
-                <tableViewController id="FVW-ng-uEJ" customClass="AddGeotificationViewController" customModule="Geotify" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="FVW-ng-uEJ" customClass="AddGeotificationViewController" customModule="ShotsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xmi-Zh-uko">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -610,6 +610,6 @@ Behance</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6A0-Db-5Rt"/>
+        <segue reference="cEL-eI-NCu"/>
     </inferredMetricsTieBreakers>
 </document>

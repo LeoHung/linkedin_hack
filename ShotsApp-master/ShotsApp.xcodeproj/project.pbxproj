@@ -12,6 +12,9 @@
 		50DE4E741B5A56E400E0F93F /* GeotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4E701B5A56E400E0F93F /* GeotificationsViewController.swift */; };
 		50DE4E751B5A56E400E0F93F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4E711B5A56E400E0F93F /* Utilities.swift */; };
 		50DE4E771B5A584400E0F93F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4E761B5A584400E0F93F /* StartController.swift */; };
+		50DE4E791B5A601100E0F93F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50DE4E781B5A601100E0F93F /* CoreLocation.framework */; };
+		50DE4E7B1B5A603B00E0F93F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50DE4E7A1B5A603B00E0F93F /* MapKit.framework */; };
+		50DE4E7D1B5A60FF00E0F93F /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE4E7C1B5A60FF00E0F93F /* MapData.swift */; };
 		96D9E9511987FAE8009D7A10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9E9501987FAE8009D7A10 /* AppDelegate.swift */; };
 		96D9E9561987FAE8009D7A10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D9E9541987FAE8009D7A10 /* Main.storyboard */; };
 		96D9E9581987FAE8009D7A10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D9E9571987FAE8009D7A10 /* Images.xcassets */; };
@@ -42,6 +45,9 @@
 		50DE4E701B5A56E400E0F93F /* GeotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeotificationsViewController.swift; sourceTree = "<group>"; };
 		50DE4E711B5A56E400E0F93F /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		50DE4E761B5A584400E0F93F /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
+		50DE4E781B5A601100E0F93F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		50DE4E7A1B5A603B00E0F93F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		50DE4E7C1B5A60FF00E0F93F /* MapData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
 		96D9E94B1987FAE8009D7A10 /* ShotsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShotsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D9E94F1987FAE8009D7A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96D9E9501987FAE8009D7A10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50DE4E7B1B5A603B00E0F93F /* MapKit.framework in Frameworks */,
+				50DE4E791B5A601100E0F93F /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +89,8 @@
 		96D9E9421987FAE8009D7A10 = {
 			isa = PBXGroup;
 			children = (
+				50DE4E7A1B5A603B00E0F93F /* MapKit.framework */,
+				50DE4E781B5A601100E0F93F /* CoreLocation.framework */,
 				96D9E94D1987FAE8009D7A10 /* ShotsApp */,
 				96D9E9601987FAE8009D7A10 /* ShotsAppTests */,
 				96D9E94C1987FAE8009D7A10 /* Products */,
@@ -112,6 +122,7 @@
 				50DE4E711B5A56E400E0F93F /* Utilities.swift */,
 				96D9E9571987FAE8009D7A10 /* Images.xcassets */,
 				96D9E94E1987FAE8009D7A10 /* Supporting Files */,
+				50DE4E7C1B5A60FF00E0F93F /* MapData.swift */,
 			);
 			path = ShotsApp;
 			sourceTree = "<group>";
@@ -272,6 +283,7 @@
 				50DE4E751B5A56E400E0F93F /* Utilities.swift in Sources */,
 				96D9E97B198808B5009D7A10 /* Misc.swift in Sources */,
 				96D9E97C198808B5009D7A10 /* SpringAnimation.swift in Sources */,
+				50DE4E7D1B5A60FF00E0F93F /* MapData.swift in Sources */,
 				96D9E97A198808B5009D7A10 /* DesignableView.swift in Sources */,
 				50DE4E741B5A56E400E0F93F /* GeotificationsViewController.swift in Sources */,
 				96D9E979198808B5009D7A10 /* Data.swift in Sources */,
@@ -393,7 +405,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ShotsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShotsApp;
 			};
 			name = Debug;
 		};
@@ -405,7 +417,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ShotsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShotsApp;
 			};
 			name = Release;
 		};
@@ -423,7 +435,7 @@
 				);
 				INFOPLIST_FILE = ShotsAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShotsAppTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -438,7 +450,7 @@
 				);
 				INFOPLIST_FILE = ShotsAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShotsAppTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;

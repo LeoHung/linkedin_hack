@@ -24,3 +24,26 @@ func zoomToUserLocationInMapView(mapView: MKMapView) {
     mapView.setRegion(region, animated: true)
   }
 }
+
+func getMockCardData() -> [MapData] {
+    var dataList:[MapData] = []
+    
+    for i in 0..4 {
+        
+    }
+    
+    
+    for i in 0...7 {
+        var contact:Contact = contacts[i]
+        var message:NSString = messages[i]
+        var monthDate:NSString = "Aug 30"
+        var year:NSString = "2013"
+        var sender = contact.name
+        var imageName:String = "TestImg" + String(i) + ".JPG"
+        var photo:UIImage = UIImage(named:imageName)!
+        
+        contact.name = "Jack Liao"
+        dataList.append(CardData(contact: contact, message: message, monthDate: monthDate, year: year, sender: sender, photo: photo))
+    }
+    return dataList
+}
