@@ -84,11 +84,23 @@ def message_api(request, mid=None):
     return HttpResponseNotFound('<h1>mid is null.</h1>')
 
   try:
-    message = Messages.objects.get(id=int(mid))
-    msg = {}
-
-    return msg
-  except:
+    m = Message.objects.get(id=int(mid))
+    res = {
+      'id': m.id,
+      'msg_type': m.msg_type,
+      'title': m.title,
+      'doc': m.doc,
+      'url': m.url,
+      'img_url': m.img_url,
+      'start_time': long(time.mktime(m.start_time.timetuple())*1000),
+      'end_time': long(time.mktime(m.end_time.timetuple())*1000),
+      'category': m.category,
+      'lat': float(m.lat),
+      'lng': float(m.lng)
+    }
+    return HttpResponse(json.dumps(res), content_type='application/json')
+  except Exception as e:
+    print e
     return HttpResponseNotFound('<h1>Not Found %s. </h1>' % mid)
 
 def message_upload(request):
