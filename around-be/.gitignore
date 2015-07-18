@@ -7,5 +7,6 @@ local_settings.py
 *~
 *#
 
+keys.py
 # Django's SQL Lite Database File
 db.sqlite3
